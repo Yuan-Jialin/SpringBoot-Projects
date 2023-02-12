@@ -1,11 +1,7 @@
 package com.lanqiao.jd.util;
 
-/**
- * @author 刘佳昇
- * @Date 2019/8/8 10:19
- */
 
-public class Result <T> {
+public class Result<T> {
 
     private static final Integer OK = 0;
 
@@ -19,14 +15,16 @@ public class Result <T> {
 
     private T data;
 
-    private Result(int code, String message, int count, T data){
-        this.count = count;
-        this.data = data;
+    private Result(int code, String message, int count, T data) {
         this.code = code;
         this.msg = message;
+        this.count = count;
+        this.data = data;
+
+
     }
 
-    private Result(int code, String message,T data){
+    private Result(int code, String message, T data) {
         this.data = data;
         this.code = code;
         this.msg = message;
@@ -35,34 +33,37 @@ public class Result <T> {
 
     /**
      * 返回list数据
+     *
      * @param total 总数
-     * @param data 数据
+     * @param data  数据
      * @param <T>
      * @return
      */
-    public static <T> Result<T> createSuccessResult(int total, T data){
+    public static <T> Result<T> createSuccessResult(int total, T data) {
+        System.out.println("createSuccessResult:test");
         return new Result<T>(OK, "", total, data);
     }
 
-    public static <T> Result<T> createSuccessResult(){
+    public static <T> Result<T> createSuccessResult() {
         return new Result<T>(OK, "", null);
     }
 
-    public static <T> Result<T> createByFailure(String msg){
+    public static <T> Result<T> createByFailure(String msg) {
         return new Result<T>(FAILURE, msg, null);
     }
 
-    public static <T> Result<T> createByFailure(){
+    public static <T> Result<T> createByFailure() {
         return new Result<T>(FAILURE, "操作失败，请重试", null);
     }
 
     /**
      * 返回普通数据
+     *
      * @param data
      * @param <T>
      * @return
      */
-    public static <T> Result<T> createSuccessResult(T data){
+    public static <T> Result<T> createSuccessResult(T data) {
         return new Result<>(OK, "", data);
     }
 

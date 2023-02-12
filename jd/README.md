@@ -118,7 +118,29 @@ create table if not exists tb_cart_item
 
 );
 
+create table baseSelect
+(
+    product_id int,
+    product_name varchar(30),
+    product_price int,
+    product_img_url varchar(500),
+    business_name varchar(50),
+    comment_count int,
+    foreign key (product_id) references tb_product(product_id)
 
+);
+
+create trigger base after insert on tb_product
+    for each row
+    insert into baseSelect(product_id, product_name, product_price, product_img_url, business_name, comment_count)
+    select x.product_id as product_id,x.product_name,x.product_price,x.product_img_url,x.business_name,0
+    from (select p.product_id,p.product_name,p.product_price,p.product_img_url,b.business_name from tb_product p,tb_business b where p.business_id=b.business_id ) as x ;
+
+insert into tb_product values (3,'小灵通',20,'',50,1);
+
+drop trigger base;
+
+drop table baseSelect;
 ```
 
 

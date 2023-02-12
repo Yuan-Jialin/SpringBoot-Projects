@@ -71,11 +71,10 @@ public class UserController {
     //登录 -> 检查用户名密码与数据库中的记录是否匹配
     @PostMapping("/login")
     public Result login(User user) {
-        System.out.println("--------"+user.getPassword());
+
 
         User userForBase = userService.findByUsername(user);
-        System.out.println("--------"+userForBase.getPassword());
-        System.out.println(user.getPassword().equals(userForBase.getPassword()));
+
         if (userForBase == null) {
             return Result.createByFailure("登录失败,用户不存在");
         } else {
@@ -151,7 +150,7 @@ public class UserController {
     @UserLoginToken
     @PostMapping("/showCartItem")
     public Result showCartItem(@RequestParam(name = "userId") int userId){
-        System.out.println(userId);
+        System.out.println("showCartItem"+userId);
         return cartItemService.showCartItem(userId);
     }
     //数量+1

@@ -74,7 +74,9 @@ public class CartItemServiceImpl implements CartItemService {
     @Override
     public Result showCartItem(int userId) {
         try{
+
             List<Cart_Product_Business> cart_product_businessList = cartItemMapper.selectCartItemByuserId(userId);
+            System.out.println("showCartItem:success");
             return Result.createSuccessResult(cart_product_businessList.size(),cart_product_businessList);
         }catch (Exception e){
             return Result.createByFailure("出现错误，联系管理员！");
