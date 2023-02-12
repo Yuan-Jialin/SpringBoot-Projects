@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lanqiao.jd.dao.OrderItemMapper" >
+  <resultMap id="BaseResultMap" type="com.lanqiao.jd.entity.OrderItem" >
+    <id column="order_item_id" property="orderItemId" jdbcType="INTEGER" />
+    <result column="order_id" property="orderId" jdbcType="INTEGER" />
+    <result column="product_id" property="productId" jdbcType="INTEGER" />
+    <result column="num" property="num" jdbcType="INTEGER" />
+    <result column="traffic_number" property="trafficNumber" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    order_item_id, order_id, product_id, num, traffic_number
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_order_item
+    where order_item_id = #{orderItemId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tb_order_item
+    where order_item_id = #{orderItemId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.lanqiao.jd.entity.OrderItem" >
+    insert into tb_order_item (order_item_id, order_id, product_id, 
+      num, traffic_number)
+    values (#{orderItemId,jdbcType=INTEGER}, #{orderId,jdbcType=INTEGER}, #{productId,jdbcType=INTEGER}, 
+      #{num,jdbcType=INTEGER}, #{trafficNumber,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lanqiao.jd.entity.OrderItem" >
+    insert into tb_order_item
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="orderItemId != null" >
+        order_item_id,
+      </if>
+      <if test="orderId != null" >
+        order_id,
+      </if>
+      <if test="productId != null" >
+        product_id,
+      </if>
+      <if test="num != null" >
+        num,
+      </if>
+      <if test="trafficNumber != null" >
+        traffic_number,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="orderItemId != null" >
+        #{orderItemId,jdbcType=INTEGER},
+      </if>
+      <if test="orderId != null" >
+        #{orderId,jdbcType=INTEGER},
+      </if>
+      <if test="productId != null" >
+        #{productId,jdbcType=INTEGER},
+      </if>
+      <if test="num != null" >
+        #{num,jdbcType=INTEGER},
+      </if>
+      <if test="trafficNumber != null" >
+        #{trafficNumber,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanqiao.jd.entity.OrderItem" >
+    update tb_order_item
+    <set >
+      <if test="orderId != null" >
+        order_id = #{orderId,jdbcType=INTEGER},
+      </if>
+      <if test="productId != null" >
+        product_id = #{productId,jdbcType=INTEGER},
+      </if>
+      <if test="num != null" >
+        num = #{num,jdbcType=INTEGER},
+      </if>
+      <if test="trafficNumber != null" >
+        traffic_number = #{trafficNumber,jdbcType=INTEGER},
+      </if>
+    </set>
+    where order_item_id = #{orderItemId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lanqiao.jd.entity.OrderItem" >
+    update tb_order_item
+    set order_id = #{orderId,jdbcType=INTEGER},
+      product_id = #{productId,jdbcType=INTEGER},
+      num = #{num,jdbcType=INTEGER},
+      traffic_number = #{trafficNumber,jdbcType=INTEGER}
+    where order_item_id = #{orderItemId,jdbcType=INTEGER}
+  </update>
+
+  <select id="selectByOrderId" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
+    <include refid="Base_Column_List" />
+    from tb_order_item
+    where order_id = #{orderId,jdbcType=INTEGER}
+  </select>
+
+</mapper>

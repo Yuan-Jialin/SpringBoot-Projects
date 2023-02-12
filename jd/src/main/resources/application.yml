@@ -1,0 +1,21 @@
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/tb?useSSL=false
+    username: root
+    password: mysql
+
+server:
+  port: 8080
+
+root:
+  path: "classpath:/static"
+img:
+  path: "/img"
+pdf:
+  path: ""
+mp3:
+  path: ""
+mybatis:
+  mapper-locations: classpath:mapper/*.xml

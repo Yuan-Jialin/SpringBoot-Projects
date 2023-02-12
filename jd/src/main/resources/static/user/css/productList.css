@@ -1,0 +1,271 @@
+/*常用短样式*/
+body{
+    background-color: #ffffff
+}
+
+.red {
+    color: #F1251b
+}
+
+.font14 {
+    font-size: 14px
+}
+
+.font15 {
+    font-size: 15px
+}
+
+.business
+{
+    color: #e1251b;
+    font-size: 15px;
+}
+
+.font16 {
+    font-size: 16px
+}
+
+/*menu*/
+#menu {
+    width: 1349px;
+    height: 31px;
+    background-color: #E3E4E5;
+    color: #999999;
+}
+
+#menu li {
+    line-height: 30px;
+}
+
+#menu_content {
+    width: 1190px;
+    height: 30px;
+    margin: 0px 79.5px;
+}
+
+#m_left li {
+    margin-right: 4px
+}
+
+#m_right {
+    width: 730px;
+    height: 30px;
+    float: right;
+}
+
+#m_right .dt {
+    width: 62px;
+    height: 30px;
+    padding: 0 2px;
+    text-align: center;
+}
+
+#m_right .dt1 {
+    width: 77px;
+    height: 30px;
+    padding: 0 2px;
+    text-align: center;
+}
+
+#m_right_first {
+    width: 127.11px;
+}
+
+.spacer {
+    overflow: hidden;
+    margin: 11px 5px 0;
+    width: 1px;
+    height: 10px;
+    background-color: #ccc;
+}
+
+/*************header***************/
+
+#header {
+    width: 1349px;
+    height: 87px;
+    background-color: white;
+}
+
+#header_coutent {
+    width: 1190px;
+    height: 140px;
+    margin: 0px 79.5px;
+}
+
+/*logo图片*/
+#logo {
+    display: block;
+    width: 134px;
+    height: 42px;
+    margin-top: 25px;
+    background: url("../images/cart/cart1.png") no-repeat 0 0;
+    background-size: 134px 42px;
+    float: left;
+}
+
+/*搜索栏部分开始*/
+#search {
+    width: 900px;
+    height: 100px;
+    float: right;
+}
+
+/*搜索栏*/
+#search_top_left {
+    width: 550px;
+    height: 36px;
+    margin-top: 25px;
+    float: left;
+    border: 2px solid #e1251b;
+}
+
+#keyword {
+    padding: 2px 44px 2px 17px;
+    width: 400px;
+    height: 32px;
+    line-height: 32px;
+    font-size: 14px;
+    float: left;
+    border-style: hidden;
+}
+
+#search_btn{
+    width: 82px;
+    height: 36px;
+    border: none;
+    float: right;
+    font-size: 16px;
+    color: #fff;
+    font-family: tahoma,arial,Microsoft YaHei,Hiragino Sans GB,"\u5b8b\u4f53",sans-serif;
+    background-color: #e1251b;
+}
+
+/*购物车*/
+#search_top_center {
+    width: 132px;
+    height: 36px;
+    background-color: #F9F9F9;
+    text-align: center;
+    line-height: 33px;
+    float: left;
+    margin-top: 25px;
+    margin-left: 25px;
+    border: 1px solid #eeeeee;
+    position: relative;
+}
+
+#search_top_center .ci-count {
+    position: relative;
+    top: -6px;
+    left: -1px;
+    right: auto;
+    display: inline-block;
+    padding: 1px 3px;
+    font-size: 12px;
+    line-height: 12px;
+    color: #fff;
+    background-color: #e1251b;
+    border-radius: 7px;
+    min-width: 12px;
+    text-align: center;
+}
+
+/*快速搜索*/
+#search_bottom {
+    float: left;
+    margin-top: 3px;
+}
+
+#search_bottom li {
+    float: left;
+    margin-top: 3px;
+    margin-right: 10px;
+}
+
+#search_bottom .spacer{
+    margin-top: 7px;
+    margin-left: 0px;
+}
+
+.three-div {
+    width: 100%;
+    height: 35px;
+    margin-top: 10px;
+    background-color: #fff;
+    border-bottom: 2px solid #F1251b;
+}
+
+.left {
+    width: 190px;
+    height: 33px;
+    margin-top: 2px;
+    margin-left: 80px;
+    background: #F1251b;
+    float: left;
+    text-align: center;
+}
+
+.three-div-span {
+    color: white;
+    line-height: 33px;
+    font-size: 14px;
+}
+
+.right {
+    float: left;
+}
+
+.right li{
+    float: left;
+    list-style: none;
+    margin-top: 6px;
+    margin-left: 50px;
+    font-size: 14px;
+    font-family: "Microsoft YaHei";
+}
+
+.four-contain {
+    width: 90%;
+    margin-left: 80px;
+}
+.product {
+    height: 400px;
+    width: 274px;
+    border: 1px;
+    float: left;
+}
+
+.product-ul {
+    margin-top: 10px;
+    margin-left: 240px;
+}
+
+.pro-img{
+    width: 220px;
+    height: 220px;
+    padding: 0;
+    margin: 20px 27px 15px 27px;
+    position: relative;
+}
+.pro-img img{
+    width: 220px;
+    height: 220px;
+}
+
+.p-price {
+    position: relative;
+    line-height: 22px;
+    margin: 10px 0 8px 27px;
+    color: #e4393c;
+    font-size: 20px;
+}
+
+.p-item{
+    font-size: 14px;
+}
+
+
+.p-item span{
+     margin: 3px 27px;
+ }

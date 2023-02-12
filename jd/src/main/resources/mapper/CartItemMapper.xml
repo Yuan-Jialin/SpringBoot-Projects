@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lanqiao.jd.dao.CartItemMapper" >
+  <resultMap id="BaseResultMap" type="com.lanqiao.jd.entity.CartItem" >
+    <id column="cart_item_id" property="cartItemId" jdbcType="INTEGER" />
+    <result column="shop_cart_id" property="shopCartId" jdbcType="INTEGER" />
+    <result column="num" property="num" jdbcType="INTEGER" />
+    <result column="product_id" property="productId" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    cart_item_id, shop_cart_id, num, product_id
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_cart_item
+    where cart_item_id = #{cartItemId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tb_cart_item
+    where cart_item_id = #{cartItemId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.lanqiao.jd.entity.CartItem" >
+    insert into tb_cart_item (cart_item_id, shop_cart_id, num, 
+      product_id)
+    values (#{cartItemId,jdbcType=INTEGER}, #{shopCartId,jdbcType=INTEGER}, #{num,jdbcType=INTEGER}, 
+      #{productId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lanqiao.jd.entity.CartItem" >
+    insert into tb_cart_item
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="cartItemId != null" >
+        cart_item_id,
+      </if>
+      <if test="shopCartId != null" >
+        shop_cart_id,
+      </if>
+      <if test="num != null" >
+        num,
+      </if>
+      <if test="productId != null" >
+        product_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="cartItemId != null" >
+        #{cartItemId,jdbcType=INTEGER},
+      </if>
+      <if test="shopCartId != null" >
+        #{shopCartId,jdbcType=INTEGER},
+      </if>
+      <if test="num != null" >
+        #{num,jdbcType=INTEGER},
+      </if>
+      <if test="productId != null" >
+        #{productId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanqiao.jd.entity.CartItem" >
+    update tb_cart_item
+    <set >
+      <if test="shopCartId != null" >
+        shop_cart_id = #{shopCartId,jdbcType=INTEGER},
+      </if>
+      <if test="num != null" >
+        num = #{num,jdbcType=INTEGER},
+      </if>
+      <if test="productId != null" >
+        product_id = #{productId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where cart_item_id = #{cartItemId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lanqiao.jd.entity.CartItem" >
+    update tb_cart_item
+    set shop_cart_id = #{shopCartId,jdbcType=INTEGER},
+      num = #{num,jdbcType=INTEGER},
+      product_id = #{productId,jdbcType=INTEGER}
+    where cart_item_id = #{cartItemId,jdbcType=INTEGER}
+  </update>
+
+  <select id="selectByProductId" resultMap="BaseResultMap" >
+    select
+    <include refid="Base_Column_List" />
+    from tb_cart_item
+    where shop_cart_id = #{shopCartId} and product_id = #{productId}
+  </select>
+
+  <select id="selectByShopCartId" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
+    <include refid="Base_Column_List" />
+    from tb_cart_item
+    where shop_cart_id = #{shopCartId,jdbcType=INTEGER}
+  </select>
+
+  <select id="selectCartItemByuserId" resultType="com.lanqiao.jd.entity.Cart_Product_Business" parameterType="java.lang.Integer" >
+
+    select y.business_name,y.product_id,y.product_name,y.product_img_url,y.product_price,y.detail_1,c.num,c.cart_item_id
+		from
+		 (select x.business_name,x.product_id,x.product_name,x.product_img_url,x.product_price,i.detail_1
+		from baseSelect x left JOIN tb_product_item i
+		on x.product_id = i.product_id) y,tb_cart_item c,tb_shop_cart s
+		where
+		c.shop_cart_id = (select shop_cart_id from tb_shop_cart where user_id = #{userId,jdbcType=INTEGER})
+    and  c.product_id = y.product_id and s.user_id = #{userId,jdbcType=INTEGER}
+
+  </select>
+
+  <select id="selectByUserIdAndProductId" resultMap="BaseResultMap" >
+    select
+    c.*
+    from tb_cart_item c,tb_shop_cart s
+    where s.user_id = #{userId} and c.product_id = #{productId} and c.shop_cart_id = s.shop_cart_id
+  </select>
+
+
+
+</mapper>

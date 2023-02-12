@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lanqiao.jd.dao.UserAddressMapper" >
+  <resultMap id="BaseResultMap" type="com.lanqiao.jd.entity.UserAddress" >
+    <id column="user_address_id" property="userAddressId" jdbcType="INTEGER" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="receive_tel" property="receiveTel" jdbcType="VARCHAR" />
+    <result column="receive_name" property="receiveName" jdbcType="VARCHAR" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    user_address_id, address, receive_tel, receive_name, user_id
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_user_address
+    where user_address_id = #{userAddressId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tb_user_address
+    where user_address_id = #{userAddressId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.lanqiao.jd.entity.UserAddress" >
+    insert into tb_user_address (user_address_id, address, receive_tel, 
+      receive_name, user_id)
+    values (#{userAddressId,jdbcType=INTEGER}, #{address,jdbcType=VARCHAR}, #{receiveTel,jdbcType=VARCHAR}, 
+      #{receiveName,jdbcType=VARCHAR}, #{userId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lanqiao.jd.entity.UserAddress" >
+    insert into tb_user_address
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userAddressId != null" >
+        user_address_id,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="receiveTel != null" >
+        receive_tel,
+      </if>
+      <if test="receiveName != null" >
+        receive_name,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userAddressId != null" >
+        #{userAddressId,jdbcType=INTEGER},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveTel != null" >
+        #{receiveTel,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveName != null" >
+        #{receiveName,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanqiao.jd.entity.UserAddress" >
+    update tb_user_address
+    <set >
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveTel != null" >
+        receive_tel = #{receiveTel,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveName != null" >
+        receive_name = #{receiveName,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where user_address_id = #{userAddressId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lanqiao.jd.entity.UserAddress" >
+    update tb_user_address
+    set address = #{address,jdbcType=VARCHAR},
+      receive_tel = #{receiveTel,jdbcType=VARCHAR},
+      receive_name = #{receiveName,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=INTEGER}
+    where user_address_id = #{userAddressId,jdbcType=INTEGER}
+  </update>
+
+  <!-- Add -->
+  <!-- 根据用户id查询出改用户所有的地址 -->
+  <select id="selectByUserId" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select *
+    from tb_user_address
+    where user_id = #{userId,jdbcType=INTEGER}
+  </select>
+</mapper>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lanqiao.jd.dao.OrderMapper" >
+  <resultMap id="BaseResultMap" type="com.lanqiao.jd.entity.Order" >
+    <id column="order_id" property="orderId" jdbcType="INTEGER" />
+    <result column="order_status" property="orderStatus" jdbcType="VARCHAR" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="creat_time" property="creatTime" jdbcType="VARCHAR" />
+    <result column="user_address_id" property="userAddressId" jdbcType="INTEGER" />
+    <result column="total_price" property="totalPrice" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    order_id, order_status, user_id, creat_time, user_address_id, total_price
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_order
+    where order_id = #{orderId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tb_order
+    where order_id = #{orderId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.lanqiao.jd.entity.Order" >
+    insert into tb_order (order_id, order_status, user_id, 
+      creat_time, user_address_id, total_price
+      )
+    values (#{orderId,jdbcType=INTEGER}, #{orderStatus,jdbcType=VARCHAR}, #{userId,jdbcType=INTEGER}, 
+      #{creatTime,jdbcType=VARCHAR}, #{userAddressId,jdbcType=INTEGER}, #{totalPrice,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" useGeneratedKeys="true" keyProperty="orderId"  parameterType="com.lanqiao.jd.entity.Order" >
+    insert into tb_order
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="orderId != null" >
+        order_id,
+      </if>
+      <if test="orderStatus != null" >
+        order_status,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="creatTime != null" >
+        creat_time,
+      </if>
+      <if test="userAddressId != null" >
+        user_address_id,
+      </if>
+      <if test="totalPrice != null" >
+        total_price,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="orderId != null" >
+        #{orderId,jdbcType=INTEGER},
+      </if>
+      <if test="orderStatus != null" >
+        #{orderStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="creatTime != null" >
+        #{creatTime,jdbcType=VARCHAR},
+      </if>
+      <if test="userAddressId != null" >
+        #{userAddressId,jdbcType=INTEGER},
+      </if>
+      <if test="totalPrice != null" >
+        #{totalPrice,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanqiao.jd.entity.Order" >
+    update tb_order
+    <set >
+      <if test="orderStatus != null" >
+        order_status = #{orderStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="creatTime != null" >
+        creat_time = #{creatTime,jdbcType=VARCHAR},
+      </if>
+      <if test="userAddressId != null" >
+        user_address_id = #{userAddressId,jdbcType=INTEGER},
+      </if>
+      <if test="totalPrice != null" >
+        total_price = #{totalPrice,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where order_id = #{orderId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lanqiao.jd.entity.Order" >
+    update tb_order
+    set order_status = #{orderStatus,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=INTEGER},
+      creat_time = #{creatTime,jdbcType=VARCHAR},
+      user_address_id = #{userAddressId,jdbcType=INTEGER},
+      total_price = #{totalPrice,jdbcType=DECIMAL}
+    where order_id = #{orderId,jdbcType=INTEGER}
+  </update>
+
+  <select id="showItem" resultType="com.lanqiao.jd.entity.Cart_Product_Business" parameterType="java.lang.Integer" >
+    select y.business_name,y.product_id,y.product_name,y.product_img_url,y.product_price,y.detail_1,c.num,c.cart_item_id
+		from
+		(select x.business_name,x.product_id,x.product_name,x.product_img_url,x.product_price,i.detail_1
+		from baseSelect x left JOIN tb_product_item i
+		on x.product_id = i.product_id) y,tb_cart_item c
+		where y.product_id = c.product_id and cart_item_id = #{CartItemId,jdbcType=INTEGER}
+  </select>
+
+  <!-- Add -->
+  <!-- 查询一个用户的所有订单 -->
+  <select id="getAllOrderByUserId" resultType="com.lanqiao.jd.entity.SelectOrderInfoByUserId" parameterType="java.lang.Integer" >
+    select b.order_id,b.order_status,b.user_id,b.creat_time,b.product_id,b.product_name,b.product_img_url,b.total_price,b.num,ua.receive_name FROM
+(select a.order_id,a.order_status,a.user_id,a.creat_time,a.user_address_id,a.product_id,p.product_name,p.product_img_url,(p.product_price*a.num)as total_price,a.num
+from (select o.order_id,o.order_status,o.user_id,o.creat_time,o.user_address_id,oi.product_id,oi.num
+from tb_order o NATURAL join tb_order_item oi)as a NATURAL join tb_product p)as b NATURAL join tb_user_address ua
+where b.user_id = #{userId,jdbcType=INTEGER}
+  </select>
+</mapper>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>testLogin</title>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/jquery-cookie.js"></script>
+    <script>
+        function getMessage() {
+            ajaxPost("/user/getMessage",function (data) {
+                alert(data);
+            })
+        }
+        $(function () {
+            $("#login").click(function () {
+                login();
+            })
+
+            $("#get-message").click(function () {
+                getMessage()
+            })
+
+        })
+
+
+        //点击登录执行函数
+        function login() {
+            ajaxPostWithData("/user/login",{
+                userName:$("#userName").val(),
+                password:$("#password").val()
+            },function (data) {
+                // 弹出token
+                alert(data.data[1]);
+                //设置cookies
+                //获取的token格式为token:xxxxxxxxxxx 通过使用":"分割字符串获取token
+                //设置cookie方法三个参数，name，value，option，option中设置了过期时间为1天，path:"/"表示cookie全站可用
+                $.cookie("token",data.data[1].split(":")[1],{ expires:1,path:'/'});
+            })
+        }
+
+
+
+        /**
+         * post请求封装方法带参数
+         * @param url
+         * @param data
+         * @param fun
+         */
+        function ajaxPostWithData(url,data,fun) {
+            $.ajax({
+                url:url,
+                type:"post",
+                data:data,
+                dataType:"json",
+                success:fun,
+                error:function () {
+                    alert("error");
+                }
+            })
+        }
+
+        /**
+         * 不带参数请求
+         * @param url
+         * @param fun
+         */
+        function ajaxPost(url,fun) {
+            $.ajax({
+                url:url,
+                type:"post",
+                headers: {
+                    //获取cookie值，并加入至头部
+                    'token':$.cookie("token")
+                },
+                dataType:"text",
+                success:fun,
+                error:function () {
+                    alert("error");
+                }
+            })
+        }
+
+
+    </script>
+</head>
+<body>
+<input type="text" id="userName">
+<input type="text" id="password">
+<button id="login">登录</button>
+<button id="get-message">getMessage</button>
+</body>
+</html>

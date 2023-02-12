@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lanqiao.jd.dao.ProductItemMapper" >
+  <resultMap id="BaseResultMap" type="com.lanqiao.jd.entity.ProductItem" >
+    <id column="product_item_id" property="productItemId" jdbcType="INTEGER" />
+    <result column="product_id" property="productId" jdbcType="INTEGER" />
+    <result column="detail_1" property="detail1" jdbcType="VARCHAR" />
+    <result column="detail_2" property="detail2" jdbcType="VARCHAR" />
+    <result column="detail_3" property="detail3" jdbcType="VARCHAR" />
+    <result column="detail_4" property="detail4" jdbcType="VARCHAR" />
+    <result column="detail_5" property="detail5" jdbcType="VARCHAR" />
+    <result column="detail_6" property="detail6" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    product_item_id, product_id, detail_1, detail_2, detail_3, detail_4, detail_5, detail_6
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_product_item
+    where product_item_id = #{productItemId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tb_product_item
+    where product_item_id = #{productItemId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.lanqiao.jd.entity.ProductItem" >
+    insert into tb_product_item (product_item_id, product_id, detail_1, 
+      detail_2, detail_3, detail_4, 
+      detail_5, detail_6)
+    values (#{productItemId,jdbcType=INTEGER}, #{productId,jdbcType=INTEGER}, #{detail1,jdbcType=VARCHAR}, 
+      #{detail2,jdbcType=VARCHAR}, #{detail3,jdbcType=VARCHAR}, #{detail4,jdbcType=VARCHAR}, 
+      #{detail5,jdbcType=VARCHAR}, #{detail6,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lanqiao.jd.entity.ProductItem" >
+    insert into tb_product_item
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="productItemId != null" >
+        product_item_id,
+      </if>
+      <if test="productId != null" >
+        product_id,
+      </if>
+      <if test="detail1 != null" >
+        detail_1,
+      </if>
+      <if test="detail2 != null" >
+        detail_2,
+      </if>
+      <if test="detail3 != null" >
+        detail_3,
+      </if>
+      <if test="detail4 != null" >
+        detail_4,
+      </if>
+      <if test="detail5 != null" >
+        detail_5,
+      </if>
+      <if test="detail6 != null" >
+        detail_6,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="productItemId != null" >
+        #{productItemId,jdbcType=INTEGER},
+      </if>
+      <if test="productId != null" >
+        #{productId,jdbcType=INTEGER},
+      </if>
+      <if test="detail1 != null" >
+        #{detail1,jdbcType=VARCHAR},
+      </if>
+      <if test="detail2 != null" >
+        #{detail2,jdbcType=VARCHAR},
+      </if>
+      <if test="detail3 != null" >
+        #{detail3,jdbcType=VARCHAR},
+      </if>
+      <if test="detail4 != null" >
+        #{detail4,jdbcType=VARCHAR},
+      </if>
+      <if test="detail5 != null" >
+        #{detail5,jdbcType=VARCHAR},
+      </if>
+      <if test="detail6 != null" >
+        #{detail6,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanqiao.jd.entity.ProductItem" >
+    update tb_product_item
+    <set >
+      <if test="productId != null" >
+        product_id = #{productId,jdbcType=INTEGER},
+      </if>
+      <if test="detail1 != null" >
+        detail_1 = #{detail1,jdbcType=VARCHAR},
+      </if>
+      <if test="detail2 != null" >
+        detail_2 = #{detail2,jdbcType=VARCHAR},
+      </if>
+      <if test="detail3 != null" >
+        detail_3 = #{detail3,jdbcType=VARCHAR},
+      </if>
+      <if test="detail4 != null" >
+        detail_4 = #{detail4,jdbcType=VARCHAR},
+      </if>
+      <if test="detail5 != null" >
+        detail_5 = #{detail5,jdbcType=VARCHAR},
+      </if>
+      <if test="detail6 != null" >
+        detail_6 = #{detail6,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where product_item_id = #{productItemId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lanqiao.jd.entity.ProductItem" >
+    update tb_product_item
+    set product_id = #{productId,jdbcType=INTEGER},
+      detail_1 = #{detail1,jdbcType=VARCHAR},
+      detail_2 = #{detail2,jdbcType=VARCHAR},
+      detail_3 = #{detail3,jdbcType=VARCHAR},
+      detail_4 = #{detail4,jdbcType=VARCHAR},
+      detail_5 = #{detail5,jdbcType=VARCHAR},
+      detail_6 = #{detail6,jdbcType=VARCHAR}
+    where product_item_id = #{productItemId,jdbcType=INTEGER}
+  </update>
+
+  <!-- Add -->
+  <!-- 根据产品id查询 -->
+  <select id="selectByProductId" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
+    <include refid="Base_Column_List" />
+    from tb_product_item
+    where product_id = #{productId,jdbcType=INTEGER}
+  </select>
+
+</mapper>

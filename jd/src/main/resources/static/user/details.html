@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>商品详情页</title>
+    <link href="css/details.css" rel="stylesheet">
+    <link href="css/base.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
+    <link href="css/layui.css" rel="stylesheet">
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/layui.js"></script>
+    <script src="js/jquery-cookie.js"></script>
+    <script src="js/details.js"></script>
+</head>
+<body style="background-color: white">
+<a name="top"></a>
+<div id="menu">
+    <div id="menu_content">
+        <ul id="m_left">
+            <li class="iconfont red font14"></li>
+            <li>北京</li>
+        </ul>
+        <ul id="m_right">
+            <li id="m_right_first">你好，请登录 &nbsp;<span class="red">免..</span></li>
+            <li class="spacer"></li>
+            <li class="dt"><a href="getOrder.html" target="_blank">我的订单</a></li>
+            <li class="spacer"></li>
+            <li class="dt1"><a>我的京东</a><i class="iconfont"></i></li>
+            <li class="spacer"></li>
+            <li class="dt"><a>京东会员</a></li>
+            <li class="spacer"></li>
+            <li class="dt1"><span class="red">企业采购</span><i class="iconfont"></i></li>
+            <li class="spacer"></li>
+            <li class="dt1">客户服务<i class="iconfont"></i></li>
+            <li class="spacer"></li>
+            <li class="dt1">网站导航<i class="iconfont"></i></li>
+            <li class="spacer"></li>
+            <li class="dt">手机京东</li>
+        </ul>
+    </div>
+</div>
+<div id="float_right">
+    <ul>
+        <li><a class="elevator_lk">京东秒杀</a></li>
+        <li class="float_right_line"></li>
+        <li><a class="elevator_lk">特色优选</a></li>
+        <li class="float_right_line"></li>
+        <li><a class="elevator_lk">频道广场</a></li>
+        <li class="float_right_line"></li>
+        <li><a class="elevator_lk">为你推荐</a></li>
+        <li class="float_right_line"></li>
+        <li><a class="elevator_lk" href="#top"><span class="elevator_totop_icon"></span> 顶部</a></li>
+    </ul>
+</div>
+<div id="header">
+    <div id="header_coutent">
+        <a href="index.html"> <div id="logo"></div></a>
+        <div id="search">
+            <div id="search_top">
+                <div id="search_top_left"><input type="text" id="keyword"><span></span>
+                    <img src="images/index/kuo.png" height="33">
+                </div>
+                <div id="search_top_center" class="red"><i class="iconfont font16"></i><i class="ci-count">0</i>我的购物车
+                </div>
+                <div id="search_top_right">
+                    <div id="qrcode"></div>
+                </div>
+                <div id="search_bottom">
+                    <ul>
+                        <li>0元试用</li>
+                        <li>红魔</li>
+                        <li>百元空调</li>
+                        <li>凉鞋清仓</li>
+                        <li>卫浴一元</li>
+                        <li>满90减50</li>
+                        <li>0元试用</li>
+                        <li>红魔</li>
+                        <li>百元空调</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div>
+    <div class="da" >
+        <div class="shang">
+            <img src="images/details/details1.jpg" height="350" width="350" id="pian" />
+            <div class="yin"></div>
+        </div>
+        <div class="bao">
+            <span class="zuo"></span>
+            <div class="tab">
+                <ul class="Ul">
+
+                    <li><img src="images/details/details1.jpg" height="52" width="52" /></li>
+                    <li><img src="images/details/details2.jpg" height="52" width="52" /></li>
+                    <li><img src="images/details/details3.jpg" height="52" width="52" /></li>
+                    <li><img src="images/details/details4.jpg" height="52" width="52" /></li>
+                    <li><img src="images/details/details5.jpg" height="52" width="52" /></li>
+                    <li><img src="images/details/details6.jpg" height="52" width="52" /></li>
+
+                </ul>
+            </div>
+            <span class="you"></span>
+        </div>
+        <div class="wrap">
+            <div class="name">
+                水密码 化妆品女 洗面奶 补水 保湿 深层清洁 冰川矿泉 套装系列 洁肤晶露100g
+            </div>
+            <div class="summary">
+                <div class="dt">京东价</div>
+                <div class="dd">
+                    <span class="price">
+                        <span>￥</span>
+                        <span>29.90</span>
+                    </span>
+                </div>
+                <div class="address">配送至：</div>
+                <div class="business"></div>
+                <div class="btns">
+                    <ul>
+                        <li class="num" style="margin-top: 20px">
+                            <input name="num" type="text" value="1" size="5px" id = "addCartNum" style="float: left">
+                            <div style="float: left;margin-right: 15px">
+
+                                <input type="button" value="+" style="width: 20px"><br>
+                                <input type="button" value="-" style="width: 20px">
+                            </div>
+                            <button class="layui-btn layui-btn-warm" id = "addToCart" name="shop">加入购物车</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="lie ">
+            <ul>
+                <li class="ll">图文介绍</li>
+                <li>评论</li>
+            </ul>
+        </div>
+        <div class="nie">
+            <div class="bao1">
+                <div class="up">
+                </div>
+                <div class="down">
+                    <div class="article">
+                        <!-- 用户 -->
+                        <div class="author">
+                            <span></span>
+                        </div>
+                        <!-- 评价等级 -->
+                        <div class="leval"></div>
+                        <!-- 评价内容 -->
+                        <div class="content"></div>
+                        <!-- 评价时间 -->
+                        <div class="time page"></div>
+                    </div>
+                    <div id = "addComment">
+                        <form>
+                            <div class="msg">
+                                <li>评价一下此商品吧~</li><br><br>
+                                商品评分（1-5）：<input name="level" id = "level"><br>
+                                在此填写您的评价：<br>
+                                <textarea name="message" rows="5" cols="72"></textarea>
+                            </div>
+                            <div >
+                                <input type="reset" id = "clearComment" value="清除"/>
+                                <input type="submit" id = "submitComment" value="发表"/>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="xia">
+        <img src="images/details/details1.jpg" height="600" width="600" id="zhao" />
+    </div>
+    <div id="test"></div>
+</div>
+</body>
+</html>

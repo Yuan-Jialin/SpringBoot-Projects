@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lanqiao.jd.dao.CommentMapper" >
+  <resultMap id="BaseResultMap" type="com.lanqiao.jd.entity.Comment" >
+    <id column="comment_id" property="commentId" jdbcType="INTEGER" />
+    <result column="comment_level" property="commentLevel" jdbcType="INTEGER" />
+    <result column="comment_detail" property="commentDetail" jdbcType="VARCHAR" />
+    <result column="comment_time" property="commentTime" jdbcType="VARCHAR" />
+    <result column="product_item_id" property="productItemId" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    comment_id, comment_level, comment_detail, comment_time, product_item_id, user_id
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_comment
+    where comment_id = #{commentId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tb_comment
+    where comment_id = #{commentId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.lanqiao.jd.entity.Comment" >
+    insert into tb_comment (comment_id, comment_level, comment_detail, 
+      comment_time, product_item_id, user_id
+      )
+    values (#{commentId,jdbcType=INTEGER}, #{commentLevel,jdbcType=INTEGER}, #{commentDetail,jdbcType=VARCHAR}, 
+      #{commentTime,jdbcType=VARCHAR}, #{productItemId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.lanqiao.jd.entity.Comment" >
+    insert into tb_comment
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="commentId != null" >
+        comment_id,
+      </if>
+      <if test="commentLevel != null" >
+        comment_level,
+      </if>
+      <if test="commentDetail != null" >
+        comment_detail,
+      </if>
+      <if test="commentTime != null" >
+        comment_time,
+      </if>
+      <if test="productItemId != null" >
+        product_item_id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="commentId != null" >
+        #{commentId,jdbcType=INTEGER},
+      </if>
+      <if test="commentLevel != null" >
+        #{commentLevel,jdbcType=INTEGER},
+      </if>
+      <if test="commentDetail != null" >
+        #{commentDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="commentTime != null" >
+        #{commentTime,jdbcType=VARCHAR},
+      </if>
+      <if test="productItemId != null" >
+        #{productItemId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanqiao.jd.entity.Comment" >
+    update tb_comment
+    <set >
+      <if test="commentLevel != null" >
+        comment_level = #{commentLevel,jdbcType=INTEGER},
+      </if>
+      <if test="commentDetail != null" >
+        comment_detail = #{commentDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="commentTime != null" >
+        comment_time = #{commentTime,jdbcType=VARCHAR},
+      </if>
+      <if test="productItemId != null" >
+        product_item_id = #{productItemId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where comment_id = #{commentId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lanqiao.jd.entity.Comment" >
+    update tb_comment
+    set comment_level = #{commentLevel,jdbcType=INTEGER},
+      comment_detail = #{commentDetail,jdbcType=VARCHAR},
+      comment_time = #{commentTime,jdbcType=VARCHAR},
+      product_item_id = #{productItemId,jdbcType=INTEGER},
+      user_id = #{userId,jdbcType=INTEGER}
+    where comment_id = #{commentId,jdbcType=INTEGER}
+  </update>
+
+  <select id="selectByProductItemId" resultType="com.lanqiao.jd.entity.Comment_User" parameterType="java.lang.Integer" >
+    select c.comment_id,c.comment_level,c.comment_detail,c.comment_time,c.product_item_id,u.user_id,u.user_name
+    from tb_comment c, tb_user u
+    where product_item_id = #{productItemId,jdbcType=INTEGER} and c.user_id = u.user_id
+  </select>
+
+
+</mapper>

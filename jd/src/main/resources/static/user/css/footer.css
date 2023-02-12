@@ -1,0 +1,76 @@
+/*底部*/
+
+#footer {
+    height: 400px;
+    width: 990px;
+    background-color: #ffffff;
+    margin: 0px auto;
+}
+
+#service-2014 {
+    margin-bottom: 20px;
+}
+
+#service-2014 dl {
+    float: left;
+    width: 120px;
+    padding-left: 20px;
+}
+
+#service-2014 dl.fore5 {
+    width: 100px
+}
+
+#service-2014 dt {
+    padding: 6px 0;
+    font: 400 16px/24px "microsoft yahei"
+}
+
+#service-2014 dd {
+    line-height: 20px
+}
+
+#service-2014 .slogan {
+    height: 54px;
+    padding: 20px 0;
+    margin-bottom: 14px;
+    background: #F5F5F5;
+    text-align: center
+}
+
+#service-2014 .slogan img {
+    margin-right: 20px;
+    text-align: center;
+}
+
+#service-2014 .item {
+    display: inline-block;
+    left: 50%;
+    top: 20px;
+    width: 240px;
+    height: 54px;
+    text-align: center;
+    vertical-align: middle;
+    font: 400 18px/50px "microsoft yahei"
+}
+
+#coverage {
+    float: right;
+    width: 300px;
+    height: 168px;
+    background: url("/user/images/index/dt.png") no-repeat 60px -131px;
+}
+
+#coverage .dt {
+    padding: 6px 40px 15px 80px;
+    font: 400 16px/24px "microsoft yahei"
+}
+
+#coverage .dd {
+    padding: 0 40px 15px 80px
+}
+
+.copyright {
+    clear: both;
+    text-align: center;
+}

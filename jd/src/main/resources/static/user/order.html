@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>订单结算页-京东商城</title>
+    <link rel="stylesheet" type="text/css" href="css/base.css">
+    <link rel="stylesheet" type="text/css" href="css/order.css">
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/order.js"></script>
+    <script src="js/jquery-cookie.js"></script>
+</head>
+<body>
+<div id="shortCut">
+    <!--    顶部导航内容部分    -->
+    <div id="content">
+        <!--   左   -->
+        <ul id="shortCut_left">
+            <i class="iconfont" style="float: left"></i>
+            <li class="header_Mini_Text"><a href="index.html">京东首页</a></li>
+            <li class="iconfont iconfont-location" id="locationColorSet" style="color: #9f9f9f"></li>
+            <li class="header_Mini_Te xt">福建</li>
+        </ul>
+        <!--   右   -->
+        <ul id="shortCut_right">
+            <li class="header_Mini_Text">iwaed</li>
+            <span id="plus">PLUS</span>
+            <i class="icon-plus-nickname"></i>
+            <li class="iconfont"></li>
+            <li class="space"></li>
+            <li class="header_Mini_Text">我的订单</li>
+            <li class="space"></li>
+            <li class="header_Mini_Text">我的京东
+            <li class="iconfont"></li>
+            </li>
+            <li class="space"></li>
+            <li class="header_Mini_Text">京东会员</li>
+            <li class="space"></li>
+            <li class="header_Mini_Text">企业采购
+            <li class="iconfont"></li>
+            </li>
+            <li class="space"></li>
+            <li class="header_Mini_Text">客户服务
+
+            </li>
+            <li class="space"></li>
+            <li class="header_Mini_Text">网站导航
+            <li class="iconfont"></li>
+            </li>
+            <li class="space"></li>
+            <li class="header_Mini_Text">手机京东</li>
+        </ul>
+    </div>
+</div>
+<div id="clearFix">
+    <div id="clearFix_left">
+        <a href="index.html"> <img src="images/order/logo.png"></a>
+        <li>结算页</li>
+    </div>
+    <div id="clearFix_right">
+        <img src="images/order/clearFix_right.png">
+    </div>
+</div>
+<div id="container">
+    <div id="order_content">
+        <!-- 核对标题 -->
+        <div id="checkoutTitle">
+            <li>填写并核对订单信息</li>
+        </div>
+        <!-- 核对步骤 -->
+        <div id="checkoutSteps">
+            <!-- 收货人信息 -->
+            <div id="step_tit">
+                <span class="steps_left">收货人信息</span>
+
+                <div id="href"><a class="dl" href="javascript:">新增收货地址</a>&nbsp;</div>
+                <div id="bg"></div>
+                <div id="address">
+                    <div id="title">新增收货地址<a class="close" href="javascript:">X</a></div>
+                    <form id="form1">
+                        <p>收货人姓名：<input name="receiveName" type="text" maxlength="20"></p>
+                        <p>收货人手机：<input name="receiveTel" type="text" maxlength="11"></p>
+                        <p>收货人地址：<input name="address" type="text"></p>
+                        <p><input name="subadd" type="button" class="btn" value="提交"></p>
+                    </form>
+                </div>
+
+            </div>
+            <!-- 核对内容 -->
+            <div id="step_cont">
+                <div id="cont_addr">
+                    <!-- 收货人姓名 -->
+                    <div id="addr_name">
+                        <span>钱琦瑛</span>
+                        <img src="images/order/check.png">
+                    </div>
+                    <!-- 详细地址 -->
+                    <div id="addr_detail">
+<!--                        <li><span>qwe</span> <span>福建 厦门市 集美区 城区 集美大学本部</span>&nbsp;&nbsp;&nbsp;<span>139****9948</span></li>-->
+
+                        <select id="selectID" style="float: left">
+                        </select>
+                        <div id="addr_default">选中地址</div>
+                    </div>
+                </div>
+<!--                <div id="no_display" style="display: none"></div>-->
+<!--                &lt;!&ndash; 更多地址 &ndash;&gt;-->
+<!--                <div id="more_addr">-->
+<!--                    <span>更多地址</span>-->
+<!--                    <div id="more_addr_logo">-->
+<!--                        <img src="images/order/addr-i.png">-->
+<!--                    </div>-->
+<!--                </div>-->
+                <!-- 自提 -->
+                <div id="pickSite">
+                    <!-- top -->
+                    <div id="pickSite_Top">
+                        <span id="pickSite_Logo">京东自提</span>
+                        <span id="pickSite_Top_mid">周末没人？使用京东自提 随时取</span>
+                        <a href="https://help.jd.com/user/issue/100-965.html" target="_blank">详情</a>
+                    </div>
+                    <div id="pickSite_Bottom">
+                        <div id="psb_left">印斗路20号易购...</div>
+                        <div id="psb_right">
+                            <span>印斗路20号易购便...</span>
+                            <span>福建厦门市集美区印斗路20...</span>
+                            <span>钱琦瑛</span>
+                            <span>131****5806</span>
+                            <div id="psb_right_img">
+                                <img src="images/order/selfpick-sprite.png">
+                            </div>
+                            <span>距收货人 500米</span>
+                            <li id="nearest">距离最近</li>
+                            <li class="little">修改自提点</li>
+                        </div>
+                    </div>
+                </div>
+                <!-- 支付方式 -->
+                <div id="pay">
+                    <div class="steps_left">支付方式</div>
+                    <div id="payment_list">
+                        <span id="payment_list_left">货到付款</span>
+                        <span id="payment_list_mid">
+                                <em>惠</em>在线支付
+                                <img src="images/order/check.png">
+                            </span>
+                        <div id="payment_list_right">
+                            <li>更多</li>
+                            <div id="plr_imgBox">
+                                <img src="images/order/pay-i.png">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 送货清单 -->
+                <div id="deliver">
+                    <div class="steps_left">送货清单</div>
+                    <div id="deliver_title_right">
+                            <span id="dtr_left">
+                                <img src="images/order/presale-icon.png">
+                                价格说明
+                            </span>
+                        <span>返回修改购物车</span>
+                    </div>
+                    <!-- 送货清单内容 -->
+                    <div id="deliver_cont">
+                        <!-- 内容左边 -->
+                        <div id="deliver_cont_left">
+                            <!-- 第一层 -->
+                            <div id="dcl_1">
+                                <span id="dcl_1_left">配送方式</span>
+                                <span id="dcl_1_right">
+                                        <img src="images/order/presale-icon.png">
+                                            价格说明
+                                    </span>
+                            </div>
+                            <!-- 第二层 -->
+                            <div id="dcl_2">
+                                <div>
+                                    京东快递
+                                    <img src="images/order/check.png">
+                                </div>
+                            </div>
+                            <!-- 第三层 -->
+                            <div id="dcl_3">
+                                <span>标 准 达：</span>
+                                <i>预计 8月5日[周一] 09:00-15:00 送达</i>
+                                <li class="little">修改</li>
+                            </div>
+                            <!-- 第四层 -->
+                            <div id="dcl_4">
+                                <div id="dcl_4_cont">
+                                    <img src="images/order/tips.png">
+                                    <span>新</span>
+                                    <i class="little dcl4_cont_i">京准达</i>
+                                    <i class="little dcl4_cont_i">标准达</i>
+                                    配送服务全面升级
+                                </div>
+                            </div>
+                            <!-- 第五层 -->
+                            <div id="dcl_5">
+                                <ul>
+                                    <li><input type="checkbox">&nbsp&nbsp&nbsp退换无忧</li>
+                                    <li id="changePrice">￥0.04</li>
+                                    <li>
+                                        自签收后7天内退货，15天内换货，可享1次上门取件服务
+                                        <span class="little left">查看详情</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- 第六层 -->
+                            <div id="dcl_6">
+                                <li id="weight_tit">总重量：</li>
+                                <li id="weight">0.050kg</li>
+                            </div>
+                        </div>
+                        <!-- 内容右边 -->
+                        <div id="deliver_cont_right">
+                            <div class="change_box">
+                                <span id = "dcr_title">商家 京东自营</span>
+                                <div id = "dcr_cont">
+                                    <div id = "dcr_imgBox">
+                                        <img src="images/order/product.jpg">
+                                    </div>
+                                    <div id = "dcr_Text">
+                                        <div id = "dcr_t_left">
+                                            <ul>
+                                                <li>
+                                                    <span id = "dcltl_span">京东超市</span>
+                                                    荣耀原装 Type-C 数据线 手机充电线 安卓电源线 1m 白色
+                                                </li>
+                                            </ul>
+                                            <div id="sevenDayRet">
+                                                支持7天无理由退货
+                                            </div>
+                                        </div>
+                                        <div id = "dcr_t_mid">
+                                            <div id="dcrlm_price">25.00</div>
+                                            <div id = "dcrlm_weight">0.050kg</div>
+                                            <span id="product_id" style="display: none;">1</span>
+                                            <span id="cart_item_id" style="display: none;">2</span>
+                                        </div>
+                                        <div id = "dcr_t_num">
+                                            <span>1</span>
+                                        </div>
+                                        <div id = "dcr_t_avail">
+                                            <span>有货</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--发票-->
+                <div id ="bill">
+                    <div class = "steps_left">
+                        发票信息
+                    </div>
+                    <div id = 'bill_img'>
+                        <img src="images/order/arrow-left.png">
+                    </div>
+                    <div id = "bill_prompt">
+                        <img src="images/order/light-icon.png">
+                        开企业抬头发票须填写纳税人识别号，以免影响报销
+                    </div>
+                    <div id = "bill_detail">
+                        <ul>
+                            <li>电子普通发票 <img src="images/order/qmark03.png"> </li>
+                            <li>个人</li>
+                            <li>商品明细</li>
+                            <li class="little" id = "bill_detail_little">修改</li>
+                        </ul>
+                    </div>
+                </div>
+                <div id = "virtualdiv">
+                    <li class = "steps_left">使用优惠/礼品卡/抵用</li>
+                    <img src="images/order/arrow-down.png">
+                </div>
+            </div>
+        </div>
+        <!-- 订单概要 -->
+        <div id = "order_summary">
+            <div id = "order_summary_cont"><br>
+                <span id = "productNum">1</span>
+                <span>件商品，总商品金额：</span>
+                <span id = "productPrice">￥29.00</span><br><br>
+                <span id = "osc_4span">运费：</span>
+                <img src="images/order/qmark03.png">
+                <span id = "deliverPrice">￥8.00</span><br>
+            </div>
+        </div>
+        <!-- 订单底部 -->
+        <div id = "order_bottom">
+            <div id = "ob_top">
+                <div id = "ob_top_cont">
+                     <div id = "ob_top_imgdiv"><img src="images/order/plus-price-201704.png"></div>
+                     还在花运费？每月领5张自营运费券
+                    <li>立即开通 &nbsp; ></li>
+
+                </div>
+            </div>
+            <div id = "ob_bottom">
+                <div id = "ob_bottom_cont">
+                    <div id = "obbc_pay">
+                        <span>应付金额：</span>
+                        <span id="realPay">￥37.00</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <input type="button" name = "submitOrder"  id = "submitOrder" value = "提交订单">
+    </div>
+</div>
+</body>
+</html>

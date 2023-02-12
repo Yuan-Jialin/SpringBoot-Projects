@@ -1,0 +1,507 @@
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+}
+
+.da {
+    width: 360px;
+    height: 418px;
+    float: left;
+    margin-top: 50px;
+    margin-left: 200px;
+}
+
+.shang {
+    width: 350px;
+    height: 350px;
+    border: 1px solid #ccc;
+    margin: 10px 0 25px 100px;
+    position: relative;
+}
+
+.yin {
+
+    width: 150px;
+
+    height: 150px;
+
+    border: 1px solid #ccc;
+
+    background: rgba(255,255,255,0.3);
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    cursor: pointer;
+
+    display: none;
+
+}
+
+.bao {
+
+    width: 362px;
+    height: 56px;
+    margin-left: 86px;
+    margin-bottom: 150px;
+}
+
+.tab {
+
+    width: 320px;
+
+    height: 56px;
+
+    margin-left: 10px;
+
+    overflow: hidden;
+
+}
+
+.Ul {
+
+    width: 9999px;
+
+    height: 56px;
+
+}
+
+.Ul li {
+
+    width: 52px;
+
+    height: 52px;
+
+    float: left;
+
+    border: 2px solid #ccc;
+
+    margin-left: 8px;
+
+    list-style: none;
+
+    position: relative;
+
+    text-align: center;
+
+
+}
+
+.li {
+
+    width: 52px;
+
+    height: 52px;
+
+    border: 2px solid #FF7403;
+
+    list-style: none;
+
+}
+
+.li img {
+
+    display: block;
+
+    position: absolute;
+
+    top: 50%;
+
+    left: 50%;
+
+    margin-top: -26px;
+
+    margin-left: -26px;
+
+}
+
+.zuo {
+
+    display: block;
+
+    width: 12px;
+
+    height: 56px;
+
+    background: url(//static.360buyimg.com/item/unite/1.0.81/components/default/preview/i/disabled-prev.png) no-repeat;
+
+    background-size: 180px 608px;
+
+    background-position: -82px -462px;
+
+    float: left;
+
+    margin-left: 10px;
+}
+
+.you {
+
+    display: block;
+
+    width: 12px;
+
+    height: 56px;
+
+    background: url(//static.360buyimg.com/item/unite/1.0.81/components/default/preview/i/disabled-prev.png) no-repeat;
+
+    background-size: 180px 608px;
+
+    background-position: -95px -462px;
+
+    float: right;
+
+    margin-top: -56px;
+
+}
+
+.xia {
+
+    width: 360px;
+
+    height: 418px;
+
+    border: 1px solid #ccc;
+
+    float: left;
+
+    margin: 10px 0 0 100px;
+
+    overflow: hidden;
+
+    display: none;
+
+    position: relative;
+
+    z-index: 4;
+}
+.wrap{
+    width: 590px;
+
+    float: left;
+
+    margin-left: 492px;
+
+    height: 418px;
+
+    margin-top: -538px;
+}
+
+.name{
+    font: 700 16px Arial,"microsoft yahei";
+
+    color: #666;
+
+    padding-top: 10px;
+
+    line-height: 28px;
+
+    margin-bottom: 5px;
+}
+
+.summary{
+    width: 590px;
+
+    height: 100px;
+
+    margin-bottom: 5px;
+
+    position: relative;
+
+    margin-top: 30px;
+}
+
+.dt{
+    line-height: 22px;
+
+    float: left;
+
+    padding-left: 10px;
+
+    font-family: simsun;
+
+    color: #999;
+
+    font-size: 20px;
+}
+
+.dd{
+    margin-left: 70px;
+}
+
+.price{
+    color: #E4393C;
+
+    font-family: "microsoft yahei";
+
+    margin-right: 10px;
+
+    font-size: 20px;
+
+    margin-left: 20px;
+}
+
+.address{
+    height: 30px;
+
+    margin-top: 30px;
+}
+
+
+.btns{
+    margin-bottom: 20px;
+
+    height: 46px;
+
+    margin-top: 141px;
+
+    padding: 0 10px;
+}
+
+.btns li{
+    list-style: none;
+}
+.layui-btn-warm{
+    margin-left: 0;
+}
+.lie {
+
+    width: 970px;
+
+    height: 30px;
+
+    margin-left: 10px;
+
+    margin-top: 20px;
+
+    border-bottom: 2px solid #BE0000;
+
+}
+
+.lie li {
+
+    float: left;
+
+    list-style: none;
+
+    width: 80px;
+
+    height: 28px;
+
+    background: #fff;
+
+    border-radius: 3px;
+
+    border: 0;
+
+    line-height: 30px;
+
+    text-align: center;
+
+    margin-right: 5px;
+
+    border: 1px solid #BE0000;
+
+    color: #c30;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+}
+
+.lie>ul .ll {
+
+    width: 80px;
+
+    height: 30px;
+
+    background: #BE0000;
+
+    border-radius: 3px;
+
+    border: 0;
+
+    line-height: 30px;
+
+    text-align: center;
+
+    color: #fff;
+
+    cursor: pointer;
+
+}
+
+.nie {
+
+    width: 1329px;
+
+    height: 1300px;
+
+    margin-left: 10px;
+
+    overflow: hidden;
+
+}
+
+
+.bao1 {
+
+    width: 1329px;
+
+    height: 1300px;
+
+}
+
+.up {
+
+    width: 1329px;
+
+    height: 1300px;
+
+}
+
+.up ul li {
+
+    float: left;
+    width: 443px;
+    text-align: center;
+
+    margin-top: 5px;
+
+}
+
+.down {
+
+    width: 1329px;
+
+    height: 1300px;
+
+}
+
+.article {
+
+    border-bottom: 1px solid #e5e5e5;
+    height: 120px;
+    width: 970px;
+    margin-top: 5px;
+}
+
+.author {
+    width: 90px;
+    height: 65px;
+    float: left;
+    /*border: 1px solid red;*/
+    padding-right: 20px;
+    line-height: 59px;
+}
+
+.content {
+    /*border: 1px solid blue;*/
+    height: 40px;
+    width: 800px;
+    padding: 10px;
+    color: black;
+    /*float: left;*/
+    margin-left: 112px;
+}
+
+.author span {
+    float: right;
+    padding-right: 10px;
+}
+
+.time {
+    width: 200px;
+    height: 20px;
+    /*border: solid 1px pink;*/
+    margin-left: 123px;
+}
+
+
+#addToCart
+{
+    background-color: #e1251b;
+    width: 150px;
+    height: 42px;
+    /*padding: 0 26px 0 26px;*/
+    /*padding: 26px;*/
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#addCartNum
+{
+    height: 38px;
+    width: 25px;
+    padding-left: 18px;
+}
+
+.leval
+{
+    margin-left: 123px;
+    color: #e1251b;
+    font-size: 35px;
+}
+
+.msg{
+    width: 900px;
+    height: 186px;
+    /*text-align: center;*/
+    /*border: 1px solid #e5e5e5;*/
+}
+.msg textarea{
+    margin-left: 126px;
+}
+
+.msg li{
+    font-size: 16px;
+    color: #e1251b;
+    font-weight: bold;
+}
+
+#test{
+    overflow: hidden;
+    float: left;
+    width: 30px;
+    height: 30px;
+    margin-top: 200px;
+    margin-left: 1300px;
+    /*display: none;*/
+}
+
+#addComment
+{
+    color: black;
+    margin-top: 50px;
+}
+
+#level
+{
+    width: 20px;
+    margin-bottom: 20px;
+}
+
+#clearComment
+{
+    width: 86px;
+    height: 32px;
+    color: black;
+    background-color:#e5e5e5;
+    border: none;
+    margin-left: 283px;
+    margin-right: 20px;
+}
+
+#submitComment{
+    width: 86px;
+    height: 32px;
+    color: white;
+    background-color:#e1251b;
+    border: none;
+}

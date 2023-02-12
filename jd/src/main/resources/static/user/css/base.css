@@ -1,0 +1,59 @@
+/*全局样式控制*/
+* {
+    margin: 0;
+    padding: 0;
+}
+
+i, em {
+    font-style: normal;
+}
+
+li {
+    list-style: none;
+    float: left
+}
+
+img {
+    border: 0;
+    vertical-align: middle;
+    opacity: 1;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    color: #666;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #F1251b;
+}
+
+input, button {
+    font-family: 'Microsoft YaHei', 'Heiti SC', tahoma, arial, 'Hiragino Sans GB', '\5B8B\4F53', sans-serif;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    background-color: #f4f4f4;
+    font: 12px/1.5 'Microsoft YaHei', 'Heiti SC', tahoma, arial, 'Hiragino Sans GB', '\5B8B\4F53', sans-serif;
+    color: #666;
+}
+
+/*引入矢量字体和配置样式*/
+@font-face {
+    font-family: 'iconfont';
+    src: url(//misc.360buyimg.com/mtd/pc/index_2019/1.0.0/fonts/ba43574760fe93a35fca3c6f9b9e73f4.eot);
+    src: url(//misc.360buyimg.com/mtd/pc/index_2019/1.0.0/fonts/ba43574760fe93a35fca3c6f9b9e73f4.eot?#iefix) format("embedded-opentype"), url(//misc.360buyimg.com/mtd/pc/index_2019/1.0.0/fonts/a84f5777e97992c6fb6d423c003f187b.woff) format("woff"), url(//misc.360buyimg.com/mtd/pc/index_2019/1.0.0/fonts/43f6b5fd284d120fd59582a14e3e0844.ttf) format("truetype"), url(//misc.360buyimg.com/mtd/pc/index_2019/1.0.0/fonts/7e3a7b715cf938242acf0fe64a0e1817.svg#iconfont) format("svg");
+}
+
+.iconfont {
+    font-family: 'iconfont', sans-serif;
+    font-style: normal;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}

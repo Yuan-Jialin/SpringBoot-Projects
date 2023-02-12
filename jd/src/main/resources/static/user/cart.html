@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>购物车</title>
+    <link href="css/cart.css" rel="stylesheet">
+    <link href="css/base.css" rel="stylesheet">
+    <link href="css/footer.css" rel="stylesheet">
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/jquery-cookie.js"></script>
+
+</head>
+<body>
+    <div id="cart-top">
+        <div class="w">
+            <ul class="fleft">
+                <li id="cart-top-1">
+                    <i class="iconfont"></i>
+                    <a href="index.html" target="_blank">京东首页</a>
+                </li>
+                <li id="cart-top-2">
+                    <i class="iconfont"></i>
+                    <span class="ui-areamini-text" data-id="16" title="福建">福建</span>
+                </li>
+            </ul>
+            <ul class="fright">
+                <li class="fr-1">
+                    <div class="dt cw-icon">
+                        <i class="icon-plus-nickname"></i>
+                        <a class="nickname" target="_blank" href="//home.jd.com/">请登录</a>
+                        <i class="iconfont"></i>
+                    </div>
+                </li>
+                <li class="spacer"></li>
+                <li class="fr-2">
+                    <a target="_blank" href="getOrder.html">我的订单</a>
+                </li>
+                <li class="spacer"></li>
+                <li class="fr-3">
+                    <a target="_blank" href="//home.jd.com/">我的京东</a>
+                    <i class="iconfont"></i>
+                </li>
+                <li class="spacer"></li>
+                <li class="fr-2">
+                    <a target="_blank" href="//vip.jd.com/">京东会员</a>
+                </li>
+                <li class="spacer"></li>
+                <li class="fr-3">
+                    <a target="_blank" href="//b.jd.com/">企业采购</a>
+                    <i class="iconfont"></i>
+                </li>
+                <li class="spacer"></li>
+                <li class="fr-3">
+                    <a target="_blank" href="//b.jd.com/">客户服务</a>
+                    <i class="iconfont"></i>
+                </li>
+                <li class="spacer"></li>
+                <li class="fr-3">
+                    <a target="_blank" href="//b.jd.com/">企业采购</a>
+                    <i class="iconfont"></i>
+                </li>
+                <li class="spacer"></li>
+                <li class="fr-2">
+                    <a target="_blank" href="//app.jd.com/">手机京东</a>
+                </li>
+                <li class="spacer"></li>
+
+            </ul>
+        </div>
+    </div>
+    <div id="boo">
+        <div class="w header clearfix">
+            <div id="logo-2014">
+            <a href="index.html" class="logo"></a>
+            <a href="#none" class="link2"></a>
+        </div>
+            <div class="cart-search">
+            <div>
+                <input id="key" type="text" class="itxt" autocomplete="off" accesskey="s" style="color: rgb(153, 153, 153);" placeholder="自营">
+                <input type="button" class="button" value="搜索" >
+            </div>
+        </div>
+        </div>
+        <div class="w">
+        <div class="mb10"></div>
+        <div class="cart-filter-bar">
+            <ul class="switch-cart">
+                <li class="switch-cart-item curr">
+                    <a href="#">
+                        <em>全部商品</em>
+                        <span class="number" id="allNum">1</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="cart-store">
+                <input id="hiddenLocationId" type="hidden">
+                <input id="hiddenLocation" type="hidden">
+                <span class="label">配送至：</span>
+                <div id="jdarea">
+                    <div class="ui-area-text-wrap">
+                        <div class="ui-area-text" data-id="16-1315-46764-46796" title="福建厦门市集美区灌口镇">福建厦门市集美区灌口镇</div>
+                        <b></b>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="w">
+            <div id="jd-cart">
+                <div class="cart-thead">
+                    <div class="column t-checkbox">
+                        <div class="cart-checkbox">
+                            <input type="checkbox" name="toggle-checkboxes">&nbsp;&nbsp;全选
+                        </div>
+                    </div>
+                    <div class="column t-goods">商品</div>
+                    <div class="column t-props"></div>
+                    <div class="column t-price">单价</div>
+                    <div class="column t-quantity">数量</div>
+                    <div class="column t-sum">小计</div>
+                    <div class="column t-action">操作</div>
+                </div>
+                <div class="cart-item-list">
+                    <div class="shop">
+                        <input class="list-checkbox" type="checkbox">
+                        <a class="shop-name"><span class="shop_name">京东自营</span></a>
+                    </div>
+                    <input class="list-checkbox list-check" name = "choose" type="checkbox">
+                    <div class="product-item">
+                        <img class="pro-img">
+                        <span class="pro-name">哈哈哈哈哈</span>
+                        <span class="pro-detail">啊啊啊</span>
+                        <p class="pro-price">240</p>
+                        <div class="pro-num">
+                            <input id="sub-btn" type="button" value="-"><input id="number" type="text" value="1"><input id="add-btn" type="button" value="+">
+                        </div>
+                        <span id="product-id">11</span>
+                        <b class="total-price">249</b>
+                        <span id="cart-item-id">1</span>
+                        <a><span class="delete">删除</span></a><br>
+                        <a><span id="move">移到我的关注</span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="account_box">
+                <div class="column t-checkbox">
+                    <div class="cart-checkbox">
+                        <input type="checkbox" name="toggle-checkboxes">&nbsp;&nbsp;全选
+                    </div>
+                </div>
+                <ul>
+                    <li class="delete"><a>删除选中商品</a></li>
+                    <li><a>移到关注</a></li>
+                    <li><a><b>清理购物车</b></a></li>
+                </ul>
+<!--                <a class="account_btn" href="order.html" id = "setOrder">去京东结算</a>-->
+                <input type="button" id = "setOrder" class="account_btn" value="去京东结算" onclick=""/>
+                <div class="price-num">
+                    <span>总价：</span><b class="account-price" id ="totalPrice">0.00</b>
+                    <p>促销：-&yen;100.00</p>
+                </div>
+                <div class="selected-num">
+                    <p>已选择</p><input id="selected-pro-num" type="text" value="0"/><p>件商品</p>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    <div id="footer">
+        <iframe id="footerFrame" name="footerFrame" src="footer.html" width="990" height="400" frameborder="0" scrolling="no"></iframe>
+    </div>
+</body>
+</html>

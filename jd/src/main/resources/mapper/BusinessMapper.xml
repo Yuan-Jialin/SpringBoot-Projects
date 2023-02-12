@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lanqiao.jd.dao.BusinessMapper" >
+  <resultMap id="BaseResultMap" type="com.lanqiao.jd.entity.Business" >
+    <id column="business_id" property="businessId" jdbcType="INTEGER" />
+    <result column="business_name" property="businessName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    business_id, business_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_business
+    where business_id = #{businessId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tb_business
+    where business_id = #{businessId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.lanqiao.jd.entity.Business" >
+    insert into tb_business (business_id, business_name)
+    values (#{businessId,jdbcType=INTEGER}, #{businessName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lanqiao.jd.entity.Business" >
+    insert into tb_business
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="businessId != null" >
+        business_id,
+      </if>
+      <if test="businessName != null" >
+        business_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="businessId != null" >
+        #{businessId,jdbcType=INTEGER},
+      </if>
+      <if test="businessName != null" >
+        #{businessName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanqiao.jd.entity.Business" >
+    update tb_business
+    <set >
+      <if test="businessName != null" >
+        business_name = #{businessName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where business_id = #{businessId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lanqiao.jd.entity.Business" >
+    update tb_business
+    set business_name = #{businessName,jdbcType=VARCHAR}
+    where business_id = #{businessId,jdbcType=INTEGER}
+  </update>
+  <select id="selectAllBusiness" resultMap="BaseResultMap" >
+    select * from tb_business
+  </select>
+</mapper>

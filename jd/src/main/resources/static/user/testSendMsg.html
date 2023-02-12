@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>testLogin</title>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script>
+        $(function () {
+            $("#send").click(function () {
+                send();
+            })
+        })
+
+        //点击登录执行函数
+        function send(){
+            $.ajax({
+                url:"/user/sendMsg",
+                type:"post",
+                data:{phoneNumber:$("#phoneNumber").val()
+                },
+                datatype:JSON,
+                    success:function (data) {
+                        alert(data.data[0]);
+                    }
+            })
+        }
+    </script>
+</head>
+<body>
+<input type="text" id="phoneNumber">
+<button id="send">发送</button>
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> 商品管理</title>
+    <link type="text/css" rel="stylesheet" href="css/login_css.css">
+    <link type="text/css" rel="stylesheet" href="css/seller.css">
+    <link type="text/css" rel="stylesheet" href="css/layui.css">
+    <script src="js/layui.js"></script>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/additional-methods.min.js"></script>
+    <script src="js/jquery-cookie.js"></script>
+    <script language="javascript">
+        var tabProduct = document.getElementById("tabProduct");
+
+        // 设置表格可编辑
+        // 可一次设置多个，例如：EditTables(tb1,tb2,tb2,......)
+        EditTables(tabProduct);
+    </script>
+    <script>
+        $(function () {
+
+            $("input[name='sub_btn']").click(function () {
+                alert($("#form1").serialize());
+                $.ajax({
+                    url:"/product/insertProduct",
+                    type:"post",
+                    dataType: "json",
+                    date:
+                        $("#form1").serialize(),
+                    success:function (result) {
+                        if(result.code==0){
+                            alert("插入成功！");
+                        }else {
+                            alert("插入失败！");
+                        }
+                    },error:function () {
+                        alert("请求响应失败！");
+                    }
+                })
+            })
+
+
+            $("input[name='del']").click(function () {
+                $(this).parent().parent().detach();
+            });
+
+            // function  add() {
+            //    $(".addshop").show();
+            // }
+            $(".layui-btn").click(function () {
+                $(".addshop").show();
+
+            })
+
+        })
+    </script>
+
+
+</head>
+<body>
+<div id="header">
+    <div class="w">
+        <a href="www.jd.com" class="logo">
+        </a>
+        <div class="logo_title">商品管理</div>
+    </div>
+</div>
+<div id="left-item">
+    <div class="left-1">
+        <label>
+            <a href="#"> 我的店铺</a>
+        </label>
+    </div>
+    <div class="left-1">
+        <label>
+            <a href="#">商品管理</a>
+        </label>
+    </div>
+    <div class="left-1">
+        <label>
+            <a href="#"> 订单管理</a>
+        </label>
+    </div>
+    <div class="left-1">
+        <label>
+           <a href="#"> 我的配送</a>
+        </label>
+    </div>
+
+</div>
+<div id="right-item">
+    <div class="right-1">
+        <div>
+
+<!--            <button class="add">添加商品</button>-->
+
+            <button name="add"  class="layui-btn" >添加商品</button>
+
+            <div class="find">
+                <input name="find" type="text" placeholder="查找商品">
+            </div>
+        </div>
+        <div class="layui-form">
+            <table class="layui-table" id="add-table">
+                <colgroup>
+                    <col width="150">
+                    <col width="150">
+                    <col width="200">
+                    <col>
+                </colgroup>
+                <thead>
+                <tr id="head">
+                    <th EditType="shopName">商店名称</th>
+                    <th EditType="shopPhoto">商品图片</th>
+                    <th EditType="productName">商品名称</th>
+                    <th EditType="shopId">商品编码</th>
+                    <th EditType="price">价格</th>
+                    <th >操作</th>
+                </tr>
+                </thead>
+                <tbody id="first">
+                <tr id="two">
+                    <td>111</td>
+                    <td>222</td>
+                    <td>333</td>
+                    <td>444</td>
+                    <td>333</td>
+                    <td><input name="del" type="button" value="删除"/></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+<!--        <ul>-->
+<!--            <li><input name="all" type="checkbox">全选</li>-->
+<!--            <li>商品图片</li>-->
+<!--            <li>产品名称</li>-->
+<!--            <li>价格</li>-->
+<!--            <li class="num">数量</li>-->
+
+<!--            <li>操作</li>-->
+<!--        </ul>-->
+<!--        <ul>-->
+<!--            <li><input name="one" type="checkbox"></li>-->
+<!--            <li></li>-->
+<!--            <li></li>-->
+<!--            <li class="num"><input type="button" value="-" @click="changeDel(index)"> <input name="num" type="text"-->
+<!--                                                                                             v-model="product.num">-->
+<!--                <input type="button" value="+" @click="changeAdd(index)">-->
+<!--            </li>-->
+<!--            <li></li>-->
+<!--            <li><span @click="del">删除</span></li>-->
+<!--        </ul>-->
+
+    </div>
+
+    <!--输入框-->
+
+</div>
+<div class="addshop">
+    <form id="form1">
+        <tr> 商店代号：<input name="businessId" type="text"><br></tr>
+        <td></td>
+        <td></td>
+        <tr>商品图片：<input name="file" type="file"><br></tr>
+        <tr>商品名称：<input name="productName" type="text"><br></tr>
+        <tr>价格：&nbsp;&nbsp;&nbsp;&nbsp;<input name="productPrice" type="text"><br></tr>
+        <input name="sub_btn" type="button" value="提交">
+    </form>
+
+</div>
+<!--<div class="min">-->
+
+<!--</div>-->
+<!--<div id="tanchu">-->
+<!--    <div class="addshop">添加商品</div>-->
+<!--    <div class="yangshi">-->
+<!--        <label>商品名称</label>-->
+<!--        <input type="text">-->
+<!--    </div>-->
+
+<!--</div>-->
+
+</body>
+</html>

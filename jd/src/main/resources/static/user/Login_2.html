@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>注册第二页</title>
+<link type="text/css" rel="stylesheet" href="css/login_css.css">
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/additional-methods.min.js"></script>
+    <script src="js/jquery-cookie.js"></script>
+
+    <script>
+      var phoneNumber=$.cookie("phoneNumber");
+      alert(phoneNumber);
+        $(function () {
+
+            $(".field").click(function () {
+                this.placeholder='';
+            })
+            var first=-1;
+            var second=-1;
+            var third=-1;
+            var fourth=-1;
+
+            $("input[name='user']").blur(function () {
+                var psw=$("input[name='user']").val();
+                if(psw==""){
+                    $("input[name='input_2']").val("用户名不能为空");
+                }else if(psw.length<6){
+                    $("input[name='input_2']").val("用户名至少为6位");
+                }else {
+                    first=1;
+                    $("input[name='input_2']").hide();
+                }
+            })
+            $("input[name='pass']").blur(function () {
+                var psw=$("input[name='pass']").val();
+                if(psw==""){
+                    $("input[name='input_3']").val("请输入密码");
+                }else if(psw.length<6){
+                    $("input[name='input_3']").val("密码至少为6位");
+                }else {
+                    second=1;
+                    $("input[name='input_3']").hide();
+                }
+            })
+            $("input[name='repass']").blur(function () {
+                var psw=$("input[name='repass']").val();
+                var pss=$("input[name='pass']").val();
+                if(psw!==pss)
+                {
+                    $("input[name='input_4']").val("密码与上一次输入不同");
+                }else {
+                    third=1
+                    $("input[name='input_4']").hide();
+                }
+            })
+            $("input[name='email']").blur(function () {
+                var psw=$("input[name='email']").val();
+                var reg=/^[_a-z0-9-\.]+@([-a-z0-9]+\.)+[a-z]{2,}$/;
+                if(psw==""){
+                    $("input[name='input_5']").val("请输入邮箱");
+                }
+                else if(!reg.test(psw))
+                {
+                    $("input[name='input_5']").val("邮箱格式错误");
+                }else {
+                    fourth=1;
+                    $("input[name='input_5']").hide();
+                }
+
+            })
+            //确认注册信息是否全部正确
+            $(".step_next_1").click(function () {
+                if(first==1&&second==1&&third==1&&fourth==1){
+                    $.ajax({
+                        url:"/user/register",
+                        type:"post",
+                        datatype:JSON,
+                        data:{
+                            userName:$("input[name='user']").val(),
+                            password:$("input[name='pass']").val(),
+                            phoneNumber:phoneNumber,
+                        },
+                        success:function (result) {
+                            if(result.code==0){
+                                alert("注册成功");
+                                $.cookie("userName",$("input[name='user']").val(),{ expires:1,path:'/'});
+                                $.cookie("password",$("input[name='pass']").val(),{ expires:1,path:'/'});
+                                window.location.href="http://localhost:8080/user/login.html";
+                            }
+                        },
+                        error:function (result) {
+                            alert("用户名已经存在，请重新注册");
+
+                        }
+                    })
+                }else{
+                    alert("请完成以上内容")
+                }
+            })
+
+
+            // $(".register-form").validate({
+            //     rules:{
+            //         username:{
+            //             required:true,
+            //             maxlength:20,
+            //             minlength:6
+            //
+            //         },
+            //         pass:{
+            //             required:true,
+            //             maxlength:20,
+            //             minlength:8,
+            //         },
+            //         repass:{
+            //             required:true,
+            //             maxlength:20,
+            //             minlength:8,
+            //             equalTo:"#password",
+            //         },
+            //         email:{
+            //             required:true,
+            //             email: true
+            //         }
+            //     },
+            //     messages:{
+            //         username:{
+            //             required:"请输入用户名",
+            //             maxlength:"最长20个字符",
+            //             minlength:"最短6个字符"
+            //
+            //         },
+            //         pass:{
+            //             required:"请输入密码",
+            //             maxlength:"最长20个字符",
+            //             minlength:"最短8个字符",
+            //         },
+            //         repass:{
+            //             required:"请确认密码",
+            //             maxlength:"最长20个字符",
+            //             minlength:"最短8个字符",
+            //             equalTo:"两次密码输入不一致",
+            //         },
+            //         email:{
+            //             required:"请输入邮箱",
+            //             email:"请输入正确邮箱"
+            //         }
+            //
+            //     }
+            //
+            //
+            // })
+        })
+
+
+    </script>
+
+
+</head>
+<body>
+<div id="header">
+    <div class="w">
+        <a href="www.jd.com" class="logo">
+        </a>
+        <div class="logo_title">欢迎注册</div>
+        <div class="have_accoount">已有账号？
+            <a href="#" font-color="red">请登录> </a>
+        </div>
+    </div>
+</div>
+<div id="container">
+    <div class="progress">
+        <div class="pro-step">
+            <span class="step-index_3"></span>
+            <p class="step-desc">验证手机号</p>
+        </div>
+        <div class="pro-line"></div>
+        <div class="pro-step_1">
+            <span class="step-index">2</span>
+            <p class="step-desc">填写账号</p>
+        </div>
+        <div class="pro-line_1"></div>
+        <div class="pro-step_2">
+            <span class="step-index_2">3</span>
+            <p class="step-desc">注册成功</p>
+        </div>
+    </div>
+    <div class="main">
+        <div class="reg-form">
+            <form  method="post" class="register-form">
+                <div class="form-item" style="border-color: rgb(153,153,153)">
+                    <label class="label">用 &nbsp;&nbsp;户 &nbsp; 名:</label>
+                    <input name="user" type="text" class="field" placeholder="您的用户名或登录名" maxlength="=20" >
+                </div>
+                <div class="input-tip">
+                    <input name="input_2" value="" type="text" class="input_1" >
+                </div>
+                <div class="form-item" style="border-color: rgb(153,153,153)">
+                    <label  class="label">设&nbsp;置&nbsp;密&nbsp;码:</label>
+                    <input name="pass" id="password" type="password" class="field" placeholder="建议使用两种或两种以上字符组合" maxlength="=20" >
+                </div>
+                <div class="input-tip">
+                    <input name="input_3" value="" type="text" class="input_1" >
+                </div>
+                <div class="form-item" style="border-color: rgb(153,153,153)">
+                    <label  class="label">确&nbsp;认&nbsp;密&nbsp;码:</label>
+                    <input name="repass" type="password" class="field" placeholder="请再次输入密码" maxlength="=20" >
+                </div>
+                <div class="input-tip">
+                    <input name="input_4" value="" type="text" class="input_1" >
+                </div>
+                <div class="form-item" style="border-color: rgb(153,153,153)">
+                    <label  class="label">输&nbsp;入&nbsp;邮&nbsp;箱:</label>
+                    <input name="email" type="text" class="field" placeholder="请输入邮箱" maxlength="=20" >
+                </div>
+                <div class="input-tip">
+                    <input name="input_5" value="" type="text" class="input_1" >
+                </div>
+                <div class="item_3">
+                    <div class="step_next_1">
+                        <a href="#">立即注册</a>
+
+                    </div>
+                </div>
+                <div class="other">
+                    <a href="#" class="other_item">
+                        <i class="reg-other"></i>
+                        企业用户注册
+                    </a>
+                    <a href="#" class="other_item_1">
+                        <i class="reg-other_1"></i>
+                        海外用户注册
+
+                    </a>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div id="footer">
+    <div class="links">
+        <a href="#">关于我们</a> &nbsp; |&nbsp;
+        <a href="#">联系我们</a> &nbsp; |&nbsp;
+        <a href="#">人才招聘</a> &nbsp;|&nbsp;
+        <a href="#">商家入驻</a> &nbsp;|&nbsp;
+        <a href="#">广告服务</a> &nbsp; |&nbsp;
+        <a href="#">手机京东</a> &nbsp; |&nbsp;
+        <a href="#">友情链接</a> &nbsp;|&nbsp;
+        <a href="#">销售联盟</a> &nbsp;|&nbsp;
+        <a href="#">京东社区</a> &nbsp;|&nbsp;
+        <a href="#">京东公益</a> &nbsp;|&nbsp;
+        <a href="#">English Site</a>
+    </div>
+    <div>
+        Copyright©2004-2019 &nbsp;&nbsp;京东JD.com &nbsp;版权所有
+    </div>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>京东支付</title>
+    <link href="css/base.css" rel="stylesheet">
+    <link href="css/pay.css" rel="stylesheet">
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/pay.js"></script>
+    <script src="js/jquery-cookie.js"></script>
+</head>
+<body>
+    <div class = shortcut>
+        <div class="w">
+            <a class="s-logo" href="" target="_blank">
+                <img src="images/pay/pay1.png" width="170" height="28"京东 收银台>
+            </a>
+            <ul class="s-right">
+                <li class="s-item">
+                    <a href="" target="_blank" id="name">jd_71b77794f7cea</a>
+                </li>
+                <li class="s-div">|</li>
+                <li class="s-item">
+                    <a href="" target="_blank">我的订单</a>
+                </li>
+                <li class="s-div">|</li>
+                <li class="s-item">
+                    <a href="" target="_blank">支付帮助</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="pay-body">
+        <div class="w">
+            <div class="order">
+                <div class="o-qrcode">
+                    <a class="oq-img">
+                        <img src="images/pay/pay2.png">
+                    </a>
+                </div>
+                <div class="o-left">
+                    <h3 class="o-title">订单提交成功，请尽快付款！订单号：<span>101564925356</span></h3>
+                    <p class="o-tips">
+                        <span>本次付款仅支持钱包支付，其余付款方式正在拓展，对您造成的不便，敬请谅解！</span>
+                    </p>
+                </div>
+                <div class="o-right">
+                    <em>应付金额</em>
+                    <strong id = "payMoney">109.00</strong>
+                    <em>元</em>
+                </div>
+            </div>
+        </div>
+        <input type="button" value="立即支付" id = "payButton">
+
+        <div id = "a">
+            <div id = "balanceBox"> <br>
+                <h3>余额不足，请先充值:</h3><br>
+                <li>充值金额：</li>
+                <input type="text" name="money" id = money><br><br><br>
+                <li>请输入支付密码：</li>
+                <input type="password" name="psw" id = psw><br><br><br>
+                <input type="button" name = "addMoney" id = "addMoney" value="确认充值">
+            </div>
+            <div id = "success">
+                <h3>充值成功！请继续支付</h3>
+            </div>
+        </div>
+        <div id = "paySuccess">
+            <a href="getOrder.html">支付成功，点击跳转到订单页</a>
+        </div>
+    </div>
+</body>
+</html>

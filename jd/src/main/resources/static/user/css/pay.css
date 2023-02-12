@@ -1,0 +1,183 @@
+body{
+    background-color: #ffffff
+}
+.shortcut{
+    width: 100%;
+    height: 50px;
+}
+.w {
+    position: relative;
+    width: 990px;
+    height: 150px;
+    margin: 0 auto;
+}
+.s-logo {
+    position: absolute;
+    left: 0;
+    top: 15px;
+    color: #666;
+}
+.s-right {
+    float: right;
+    padding-top: 20px;
+}
+
+.s-item {
+    height: 20px;
+    line-height: 20px;
+    padding: 0 11px 0 12px;
+    float: left;
+}
+
+.s-div {
+    float: left;
+    color: #ddd;
+}
+
+pay-body{
+    background: url("../images/pay/paybackground.png") no-repeat center -50px;
+}
+.order{
+    position: relative;
+    display: block;
+}
+
+.o-qrcode {
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 90px;
+    height: 90px;
+}
+
+.oq-img {
+    border: 1px solid #fb9d9d;
+    padding: 0;
+    width: 88px;
+    height: 88px;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 16;
+    cursor: default;
+}
+
+.o-left {
+    float: left;
+    width: 640px;
+    padding-top: 32px;
+    padding-bottom: 32px;
+    padding-left: 102px;
+}
+
+.o-tips {
+    line-height: 20px;
+    height: 20px;
+}
+.o-right {
+    float: right;
+    width: 190px;
+    padding-top: 32px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    overflow: hidden;
+}
+.o-price {
+    text-align: right;
+    line-height: 26px;
+}
+
+strong {
+    font-size: 18px;
+    vertical-align: bottom;
+    color: #e31613;
+    margin: 0 3px;
+}
+.paybutton{
+    background-color: #f44336;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+}
+
+#a{
+    width: 100%;
+    height: 300px;
+    /*border: 1px solid black;*/
+
+}
+
+#balanceBox{
+    width: 400px;
+    height:200px;
+    margin: 20px 0 0 270px;
+    display: none;
+}
+
+#balanceBox h3{
+    color:#e1251b;
+    font-size: 18px;
+}
+
+#money
+{
+    width: 50px;
+    border: 1px solid #9f9f9f;
+}
+
+#addMoney
+{
+    border:none;
+    border-radius: 3px;
+    color: white;
+    width: 100px;
+    height: 25px;
+    background-color: #e1251b;
+}
+
+#balanceBox li{
+    font-size: 16px;
+}
+
+#success
+{
+    display: none;
+    width: 300px;
+    height: 40px;
+    color: #e1251b;
+    font-size: 20px;
+    position: absolute;
+    margin-left: 300px;
+    margin-top: 100px;
+}
+
+#payButton
+{
+    background-color: #f44336;
+    margin-left: 1050px;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+}
+
+#paySuccess
+{
+    display: none;
+    width: 300px;
+    height: 40px;
+    color: #e1251b;
+    font-size: 20px;
+    position: absolute;
+    margin-left: 300px;
+    margin-top: 100px;
+}

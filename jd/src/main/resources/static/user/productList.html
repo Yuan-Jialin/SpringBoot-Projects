@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ProductList</title>
+    <link href="css/base.css" rel="stylesheet">
+    <link href="css/productList.css" rel="stylesheet">
+    <link href="css/footer.css" rel="stylesheet">
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/productList.js" rel="script"></script>
+    <script src="js/jquery-cookie.js"></script>
+</head>
+<body>
+<div id="menu">
+    <div id="menu_content">
+        <ul id="m_left">
+            <li class="iconfont red font14"></li>
+            <li><a>北京</a></li>
+        </ul>
+        <ul id="m_right">
+            <li id="m_right_first"><a href="login.html"><span class="red">你好，请登录 &nbsp;</span></a><a href="Login_1.html">免费注册</a></li>
+            <li class="spacer"></li>
+            <li class="dt"><a href="getOrder.html" target="_blank">我的订单</a></li>
+            <li class="spacer"></li>
+            <li class="dt1"><a>我的京东</a><i class="iconfont"></i></li>
+            <li class="spacer"></li>
+            <li class="dt"><a>京东会员</a></li>
+            <li class="spacer"></li>
+            <li class="dt1"><span class="red">企业采购</span><i class="iconfont"></i></li>
+            <li class="spacer"></li>
+            <li class="dt1">客户服务<i class="iconfont"></i></li>
+            <li class="spacer"></li>
+            <li class="dt1">网站导航<i class="iconfont"></i></li>
+            <li class="spacer"></li>
+            <li class="dt">手机京东</li>
+        </ul>
+    </div>
+</div>
+<div id="header">
+    <div id="header_coutent">
+        <div id="logo"></div>
+        <div id="search">
+            <div id="search_top">
+                <div id="search_top_left">
+                    <input type="text" id="keyword" placeholder="手机" style="outline: none">
+                    <button id="search_btn">搜索</button>
+                </div>
+                <div id="search_top_center" class="red">
+                    <a href="cart.html" target="_blank" style="color: #e1251b">我的购物车</a>
+                    <i class="iconfont font16"></i><i class="ci-count">0</i>
+                </div>
+                <div id="search_bottom">
+                    <ul>
+                        <li><a>0元试用</a></li><li class="spacer"></li>
+                        <li><a>红魔</a></li><li class="spacer"></li>
+                        <li><a>百元空调</a></li><li class="spacer"></li>
+                        <li><a>凉鞋清仓</a></li><li class="spacer"></li>
+                        <li><a>卫浴一元</a></li><li class="spacer"></li>
+                        <li><a>满90减50</a></li><li class="spacer"></li>
+                        <li><a>0元试用</a></li><li class="spacer"></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="three-div">
+    <div class="left">
+        <a><span class="three-div-span">全部商品分类</span></a>
+    </div>
+    <div class="right">
+        <ul>
+            <li><b><a>京东时尚</a></b></li>
+            <li><a><b>美妆馆</b></a></li>
+            <li><a><b>超市</b></a></li>
+            <li><a><b>生鲜</b></a></li>
+            <li><a><b>海豚全球</b></a></li>
+            <li><a><b>闪购</b></a></li>
+            <li><a><b>拍卖</b></a></li>
+            <li><a><b>金融</b></a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="four-contain">
+    <div >
+        <ul class="product-ul">
+            <li class="product">
+                <a class= "proitemlist" href="#">
+                    <div class="pro-img">
+                        <img src="../img/20190814105006_fc2.png">
+                    </div>
+                    <div class="p-price">
+                        <em>¥</em>
+                        <i>2888.0</i>
+                    </div>
+                    <ul class="p-item">
+                        <li style="color: black;">联想笔记本</li><br>
+                        <span>4条评论</span><br>
+                        <span  style="color:white;background-color: #e1251b">大商家</span>
+                        <span style="display: none"></span>
+                    </ul>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div id="footer">
+    <iframe id="footerFrame" name="footerFrame" src="footer.html" width="990" height="400" frameborder="0" scrolling="no"></iframe>
+</div>
+</body>
+</html>

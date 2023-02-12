@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <link href="css/base.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/index.js" rel="script"></script>
+    <script src="js/jquery-cookie.js"></script>
+</head>
+<body>
+<div id="menu">
+    <div id="menu_content">
+        <ul id="m_left">
+            <li class="iconfont red font14"></li>
+            <li><a>北京</a></li>
+        </ul>
+        <ul id="m_right">
+            <li id="m_right_first"><a href="login.html"><span class="red">你好，请登录 &nbsp;</span></a><a href="Login_1.html">免费注册</a></li>
+            <li class="spacer"></li>
+            <li class="dt"><a href="getOrder.html" target="_blank">我的订单</a></li>
+            <li class="spacer"></li>
+            <li class="dt1"><a>我的京东</a><i class="iconfont"></i></li>
+            <li class="spacer"></li>
+            <li class="dt"><a>京东会员</a></li>
+            <li class="spacer"></li>
+            <li class="dt1"><span class="red">企业采购</span><i class="iconfont"></i></li>
+            <li class="spacer"></li>
+            <li class="dt1">客户服务<i class="iconfont"></i></li>
+            <li class="spacer"></li>
+            <li class="dt1">网站导航<i class="iconfont"></i></li>
+            <li class="spacer"></li>
+            <li class="dt">手机京东</li>
+        </ul>
+    </div>
+</div>
+<div id="header">
+    <div id="header_coutent">
+    <div id="logo">
+    </div>
+        <div id="search">
+            <div id="search_top">
+                <div id="search_top_left">
+                    <input type="text" id="keyword" name="keyword" placeholder="手机" style="outline: none">
+                    <button class="button">
+                        <img src="images/index/kuo.png">
+                    </button>
+                </div>
+                <div id="search_top_center" class="red">
+                    <i class="iconfont font16"></i><i class="ci-count">0</i>
+                    <a href="cart.html" target="_blank">我的购物车</a>
+                </div>
+                <div id="search_top_right"><div id="qrcode"></div></div>
+                <div id="search_bottom">
+                    <ul>
+                        <li><a><span class="red">0元试用</span></a></li>
+                        <li><a>红魔</a></li>
+                        <li><a>百元空调</a></li>
+                        <li><a>凉鞋清仓</a></li>
+                        <li><a>卫浴一元</a></li>
+                        <li><a>满90减50</a></li>
+                        <li><a>0元试用</a></li>
+                        <li><a>红魔</a></li>
+                        <li><a>百元空调</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="nav">
+            <ul>
+                <li><a><span class="red">秒杀</span></a></li>
+                <li><a><span class="red">优惠券</span></a></li>
+                <li><a>PLUS会员</a></li>
+                <li><a>品牌闪购</a></li>
+                <li><a>拍卖</a></li>
+                <li><a>京东时尚</a></li>
+                <li><a>京东超市</a></li>
+                <li><a>京东生鲜</a></li>
+                <li><a>海囤全球</a></li>
+                <li><a>京东金融</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div id="fs">
+    <div id="fs_content">
+        <div id="fs_col1">
+            <ul>
+                <li><a href="#">家用电器</a></li>
+                <li><a href="#">手机</a> / <a href="#">运营商</a> / <a href="#">数码</a></li>
+                <li><a href="#">电脑</a> / <a href="#">办公</a></li>
+                <li><a href="#">家居</a> / <a href="#">家具</a> / <a href="#">家装</a> / <a href="#">厨具</a></li>
+                <li><a href="#">男装</a> / <a href="#">女装</a> / <a href="#">童装</a> / <a href="#">内衣</a></li>
+                <li><a href="#">美妆</a> / <a href="#">个护清洁</a> / <a href="#">宠物</a></li>
+                <li><a href="#">女鞋</a> / <a href="#">箱包</a> / <a href="#">钟表</a> / <a href="#">珠宝</a></li>
+                <li><a href="#">男鞋</a> / <a href="#">运动</a> / <a href="#">户外</a></li>
+                <li><a href="#">房产</a> / <a href="#">汽车</a> / <a href="#">汽车用品</a></li>
+                <li><a href="#">母婴</a> / <a href="#">玩具乐器</a></li>
+                <li><a href="#">食品</a> / <a href="#">酒类</a> / <a href="#">生鲜</a> / <a href="#">特产</a></li>
+                <li><a href="#">艺术</a> / <a href="#">礼品鲜花</a> / <a href="#">农贸绿植</a></li>
+                <li><a href="#">医药保健</a> / <a href="#">计生情趣</a></li>
+                <li><a href="#">图书</a> / <a href="#">文娱</a> / <a href="#">电子书</a></li>
+                <li><a href="#">机票</a> / <a href="#">酒店</a> / <a href="#">旅游</a> / <a href="#">生活</a></li>
+                <li><a href="#">理财</a> / <a href="#">众筹</a> / <a href="#">白条</a> / <a href="#">保险</a></li>
+                <li><a href="#">安装</a> / <a href="#">维修</a> / <a href="#">清洗</a> / <a href="#">二手</a></li>
+                <li><a href="#">工业品</a></li>
+            </ul>
+        </div>
+        <!-- 轮播图 -->
+        <div id="fs_col2">
+            <ul class="scroll_img">
+                <li><a><img src="https://img30.360buyimg.com/da/s590x470_jfs/t1/62473/13/7255/71485/5d577799E80dd3dfb/647c503225d3a29c.jpg.webp"></a></li>
+                <li><a><img src="https://img10.360buyimg.com/pop/s590x470_jfs/t1/44671/18/7264/100599/5d4d51ecEdc204b9c/197c5440627da45a.jpg.webp"></a></li>
+                <li><a><img src="https://img14.360buyimg.com/da/s590x470_jfs/t16663/131/1424030023/110119/f5bc9082/5acb3b19Nc3efd8d0.jpg.webp"></a></li>
+                <li><a><img src="https://img12.360buyimg.com/pop/s590x470_jfs/t1/50743/35/7658/79199/5d561facE6cbc39e4/f8683942982fb4a4.jpg.webp"></a></li>
+                <li><a><img src="https://imgcps.jd.com/ling/45763076372/5a6255S15riF5YeJ5a2j/54mp576O5Lu35LyY6LaF55yB6Jaq/p-5bd8253082acdd181d02fa47/54d587e7.jpg"></a></li>
+                <li><a><img src="https://img11.360buyimg.com/pop/s590x470_jfs/t1/63089/39/7467/91978/5d567261E027c9de7/c250d23d00906994.jpg.webp"></a></li>
+                <li><a><img src="https://img11.360buyimg.com/pop/s590x470_jfs/t1/51171/30/7368/91776/5d4d2e1bE6b5b561c/ebac9a3def809839.jpg.webp"></a></li>
+            </ul>
+            <!--左右箭头按钮-->
+            <div class="scroll_button">
+                <span class="scroll_left">&lt;</span>
+                <span class="scroll_right">&gt;</span>
+            </div>
+            <!--底部小圆点-->
+            <div class="dot">
+                <i class="current"></i>
+                <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+            </div>
+        </div>
+        <div id="fs_col3">
+            <div id="ad1"><img src="images/index/sad.PNG" width="190"></div>
+            <div id="ad2"><img src="images/index/sad.PNG" width="190"></div>
+            <div id="ad3"><img src="images/index/sad.PNG" width="190"></div>
+        </div>
+        <div id="fs_col4">
+            <div id="J_user">
+                <div id="user_head">
+                    <a href="login.html" target="_blank"><img src="data:image/png;base64,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" width="44px" height="44px"></a>
+                </div>
+                <div id="user_show">
+                    Hi~欢迎逛京东！
+                    <p>
+                        <a href="login.html">登录</a>
+                        &nbsp;|&nbsp;
+                        <a href="Login_1.html">注册</a>
+                    </p>
+                </div>
+                <div id="member">
+                    <a class="xinren">新人福利</a>
+                    <a class="xinren huiyuan">PLUS会员</a>
+                    <div class="after"></div>
+                </div>
+            </div>
+            <div id="J_news">
+                <div id="news_hd">
+                    <a class="new_tit font14">京东快报</a>
+                    <i class="iconfont ja"></i>
+                    <a class="news_more">更多</a>
+                </div>
+                <ul class="news_list">
+                    <li><span class="news_tag">热门</span><a class="news_link">iPhone 11国行售价..</a></li>
+                    <li><span class="news_tag">热门</span><a class="news_link">iPhone 11国行售价..</a></li>
+                    <li><span class="news_tag">热门</span><a class="news_link">iPhone 11国行售价..</a></li>
+                    <li><span class="news_tag">热门</span><a class="news_link">iPhone 11国行售价..</a></li>
+                </ul>
+                <div class="after"></div>
+            </div>
+            <div id="J_service">
+                <ul id="fs_service_list">
+                    <li class="fs_service_lk"><a><img src="images/index/ioc_phone.png" width="28"><br>话费</a></li>
+                    <li class="fs_service_lk"><a><img src="images/index/ioc_fj.png" width="28"><br>机票</a></li>
+                    <li class="fs_service_lk"><a><img src="images/index/ioc_jd.png" width="28"><br>酒店</a></li>
+                    <li class="fs_service_lk"><a><img src="images/index/ioc_phone.png" width="28"><br>话费</a></li>
+                    <li class="fs_service_lk"><a><img src="images/index/ioc_fj.png" width="28"><br>机票</a></li>
+                    <li class="fs_service_lk"><a><img src="images/index/ioc_jd.png" width="28"><br>酒店</a></li>
+                    <li class="fs_service_lk"><a><img src="images/index/ioc_phone.png" width="28"><br>话费</a></li>
+                    <li class="fs_service_lk"><a><img src="images/index/ioc_fj.png" width="28"><br>机票</a></li>
+                    <li class="fs_service_lk"><a><img src="images/index/ioc_jd.png" width="28"><br>酒店</a></li>
+                    <li class="fs_service_lk"><a><img src="images/index/ioc_phone.png" width="28"><br>话费</a></li>
+                    <li class="fs_service_lk"><a><img src="images/index/ioc_fj.png" width="28"><br>机票</a></li>
+                    <li class="fs_service_lk"><a><img src="images/index/ioc_jd.png" width="28"><br>酒店</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="seckill">
+        <div id="seckill_content">
+            <div id="seckill_left">
+                <div class="seckill_left_title">京东秒杀</div>
+                <div class="seckill_left_title seckill_left_title1"><span>10:00</span>场 倒计时</div>
+                <ul>
+                    <li class="seckill_left_time">01</li>
+                    <li class="seckill_left_dian">:</li>
+                    <li class="seckill_left_time">10</li>
+                    <li class="seckill_left_dian">:</li>
+                    <li class="seckill_left_time">50</li>
+                </ul>
+            </div>
+            <div id="seckill_center">
+                <ul>
+                    <li class="seckill_iteam">
+                        <img src="images/index/secpic1.png" width="140">
+                        <h6>华硕飞行堡垒7</h6>
+                        <div class="seckill_price">
+                            <span class="seckill_price_now"><i>¥</i><span>6459.00</span></span>
+                            <span class="seckill_price_origin"><i>¥</i><span>6999.00</span></span>
+                        </div>
+                    </li>
+                    <li class="seckill_iteam_line"></li>
+                    <li class="seckill_iteam">
+                        <img src="images/index/secpic1.png" width="140">
+                        <h6>华硕飞行堡垒7</h6>
+                        <div class="seckill_price">
+                            <span class="seckill_price_now"><i>¥</i><span>6459.00</span></span>
+                            <span class="seckill_price_origin"><i>¥</i><span>6999.00</span></span>
+                        </div>
+                    </li>
+                    <li class="seckill_iteam_line"></li>
+                    <li class="seckill_iteam">
+                        <img src="images/index/secpic1.png" width="140">
+                        <h6>华硕飞行堡垒7</h6>
+                        <div class="seckill_price">
+                            <span class="seckill_price_now"><i>¥</i><span>6459.00</span></span>
+                            <span class="seckill_price_origin"><i>¥</i><span>6999.00</span></span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="seckill_right">
+                <img src="images/index/secpic_1.png" width="170" height="240">
+                <img src="images/index/secpic_1.png" width="170" height="240">
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        <iframe id="footerFrame" name="footerFrame" src="footer.html" width="990" height="400" frameborder="0" scrolling="no"></iframe>
+    </div>
+    <!--右侧浮动快捷方式-->
+    <div id="float_right">
+        <ul>
+            <li><a class="elevator_lk">京东秒杀</a></li>
+            <li class="float_right_line"></li>
+            <li><a class="elevator_lk">特色优选</a></li>
+            <li class="float_right_line"></li>
+            <li><a class="elevator_lk">频道广场</a></li>
+            <li class="float_right_line"></li>
+            <li><a class="elevator_lk">为你推荐</a></li>
+            <li class="float_right_line"></li>
+            <li><a class="elevator_lk" href="#top"><span class="elevator_totop_icon"></span> 顶部</a></li>
+        </ul>
+    </div>
+    <!--&lt;!&ndash;顶部浮动快捷方式&ndash;&gt;-->
+    <!--<div id="float_top">-->
+        <!--<div id="float_top_logo"></div>-->
+        <!--<div id="search_top_left_float"><input type="text" id="keyword_float"><span></span><img src="images/index/kuo.png" height="33"></div>-->
+        <!--<div id="search_top_center_float" class="red"><i class="iconfont font16"></i><i class="ci-count">0</i>我的购物车-->
+        <!--</div>-->
+    <!--</div>-->
+</div>
+</body>
+</html>
