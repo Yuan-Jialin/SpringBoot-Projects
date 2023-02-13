@@ -1,13 +1,33 @@
-
 spring:
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/tb?useSSL=false
-    username: root
-    password: mysql
+    name: druid
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/tb?useSSL=false
+      username: root
+      password: mysql
+
+  jpa:
+    show-sql: true
+
+logging:
+  level:
+    org:
+      hibernate:
+        type:
+          descriptor:
+            sql:
+              BasicBinder: trace
+
+
+
 
 server:
   port: 8080
+
+
+
 
 root:
   path: "classpath:/static"

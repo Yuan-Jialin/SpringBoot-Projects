@@ -126,7 +126,7 @@
   <select id="fuzzyQueryProduct" resultType="com.lanqiao.jd.entity.ProdBusiComm" parameterType="java.lang.String" >
   select product_id,product_name, product_price ,product_img_url ,business_name ,ifnull(comment_count,0)as comment_count
   from baseSelect
-  where product_name LIKE concat(concat("%",#{name,jdbcType=VARCHAR}),"%")
+  where product_name LIKE concat(concat('%',#{name,jdbcType=VARCHAR}),'%')
   </select>
 
   <!-- 商品详情页1 -->

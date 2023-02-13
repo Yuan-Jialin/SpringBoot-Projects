@@ -30,7 +30,9 @@
                     date:
                         $("#form1").serialize(),
                     success:function (result) {
+                        console.log(result.code);
                         if(result.code==0){
+
                             alert("插入成功！");
                         }else {
                             alert("插入失败！");
