@@ -1,5 +1,6 @@
 package com.lanqiao.jd.dao;
 
+import com.lanqiao.jd.entity.DetailsPageSelect;
 import com.lanqiao.jd.entity.ProdBusiComm;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,12 @@ public class TestProductMapper {
         for (ProdBusiComm prodBusiComm : v) {
             System.out.println(prodBusiComm.getProductName());
         }
+    }
+    @Test
+    void TestDetailPage(){
+        DetailsPageSelect detailsPageSelect = productMapper.detailPage(1);
+        String s = detailsPageSelect.toString();
+        System.out.println(s);
     }
 
 }

@@ -53,6 +53,7 @@
         // $.cookie("name",null,{path:'/'});
 
         $(".proitemlist").click(function () {
+            console.log("proitemlist");
             var pro= $(this).children().eq(2).children().eq(5).html();
             $.cookie("productId",pro,{path:"/"});
             window.location.href="/user/details.html";

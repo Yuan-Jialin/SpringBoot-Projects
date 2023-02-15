@@ -38,10 +38,10 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
-    public Result showCommentByItemID(int productId) {
+    public Result showCommentByProductID(int productId) {
         try{
-            int productItemId = productItemMapper.selectByProductId(productId).getProductItemId();
-            List<Comment_User> commentList = commentMapper.selectByProductItemId(productItemId);
+
+            List<Comment_User> commentList = commentMapper.selectByProductId(productId);
             return Result.createSuccessResult(commentList.size(),commentList);
         }catch (Exception e){
             return Result.createByFailure("出现错误，联系管理员");

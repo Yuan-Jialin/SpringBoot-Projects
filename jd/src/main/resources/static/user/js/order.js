@@ -55,7 +55,7 @@
                 success: function (result) {
                     if(result.code == 0){
                         var $node = $(".change_box").clone(true);
-                        if(result.count>=2){
+                        if(result.count>=1){
                             for(var i = 1; i<result.count; i++){
                                 if(i > 1){
                                     //最外：checkutStep
@@ -96,6 +96,7 @@
                         proNum();
                         totalPrice();
                     }else{
+                        console.log("1")
                         alert("请先登录！");
                         window.location.href="/user/login.html";
                     }
@@ -128,6 +129,7 @@
                 if(result.code == 0){
                     var $model = $("#selectID");
                     if (result.count == 0){
+                        console.log("该用户未设置地址信息！");
                         alert("该用户未设置地址信息！");
                     } else {
                         $("#addr_name").children().eq(0).html(result.data[0].receiveName);
@@ -139,6 +141,7 @@
                         }
                     }
                 }else{
+                    console.log("请先登录！");
                     alert("请先登录！");
                     window.location.href="/user/login.html";
                 }

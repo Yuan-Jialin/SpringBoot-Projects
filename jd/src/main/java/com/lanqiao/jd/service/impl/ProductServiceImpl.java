@@ -114,7 +114,10 @@ public class ProductServiceImpl implements ProductService {
         List<Object> list = new ArrayList<Object>();
         try{
             //多表联合查询->新建一个类
+            System.out.println("111");
             DetailsPageSelect detailsPageSelect = productMapper.detailPage(productId);
+
+            System.out.println(detailsPageSelect.toString());
             list.add(detailsPageSelect);
             //查询imgList
             List<String> imgUrlList = productMapper.selectImgUrl(productId);

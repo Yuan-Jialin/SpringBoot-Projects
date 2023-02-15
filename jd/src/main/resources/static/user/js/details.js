@@ -1,5 +1,5 @@
 (     $(function() {
-        $.cookie("productItemId", null, {path: '/'});
+        //$.cookie("productId", null, {path: '/'});
         var $yin = $(".yin");
         $(".Ul li img").mouseover(function () {
             $(this).parent().addClass("li").siblings().removeClass("li");
@@ -101,7 +101,7 @@
                 data: {
                     commentDetail: $("textarea[name='message']").val(),
                     commentLevel: $("input[name='level']").val(),
-                    productItemId: $.cookie('productItemId'),
+                    productId: $.cookie('productId'),
                     userId: $.cookie('userId')
 
                 },
@@ -150,16 +150,18 @@
             datatype:"json",
             scriptCharset:"utf-8",
             data:{
-                userId:"3",
+                userId:$.cookie('userId'),
                 productId:$.cookie('productId')
             },
             success:function (result) {
+
+                console.log();
                 $("div[class='name']").text(result.data[0].productName);
                 $("div[class='address']").append(result.data[2][0].address);
                 $("div[class='test']").text(result.data[0].productItemId);
                 $(".price span").eq(1).text(result.data[0].productPrice);
                 $("div[class='business']").text("由"+result.data[0].businessName+"配送");
-                $(".lie li").eq(1).text("评论("+result.data[0].commentCount+")");
+                $(".lie li").eq(1).text("评论");
                 var up =$(".up ul li");
                 $(up[0]).text(result.data[0].detail1);
                 $(up[1]).text(result.data[0].detail2);

@@ -104,13 +104,16 @@ public class UserController {
     //评论相关
     @UserLoginToken
     @PostMapping("/insertComment")
-    public Result insertComment(Comment comment){return commentService.insertComment(comment);}
+    public Result insertComment(Comment comment){
+        //System.out.println("comment:"+comment.toString());
+        return commentService.insertComment(comment);}
 
 
     //展示某个商品的评论
     @PostMapping("/showCommentByProductId")
-    public Result showCommentByItemId(@RequestParam(name = "productId") int productId){
-        return commentService.showCommentByItemID(productId);
+    public Result showCommentByProductId(@RequestParam(name = "productId") int productId){
+        System.out.println("productId:"+productId);
+        return commentService.showCommentByProductID(productId);
     }
 
 
@@ -169,12 +172,16 @@ public class UserController {
     @UserLoginToken
     @PostMapping("showItem")
     public Result showItem(@RequestParam(name = "IdArry" )String IdArry){
-         String[] split = IdArry.split(",");
-        int []test = new int[split.length];
+        System.out.println(IdArry);
+        String[] split = IdArry.split(",");
+
+         int []test = new int[split.length];
         for (int i = 0; i < split.length; i++){
             test[i] = Integer.parseInt(split[i]);
         }
-        return orderService.showItem(test);
+        Result result = orderService.showItem(test);
+
+        return result;
     }
 
 
@@ -200,6 +207,8 @@ public class UserController {
     //商品详情页
     @PostMapping("/detailPage")
     public Result detailPage(int userId, int productId){
+
+        System.out.println(userId+" "+productId);
         return productService.productItem(userId,productId);
     }
 

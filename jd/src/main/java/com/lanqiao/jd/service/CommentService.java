@@ -9,5 +9,5 @@ public interface CommentService {
     public Result insertComment(Comment comment);
 
     //展示评论
-    public Result showCommentByItemID(int productId);
+    public Result showCommentByProductID(int productId);
 }

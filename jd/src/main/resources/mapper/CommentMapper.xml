@@ -6,11 +6,11 @@
     <result column="comment_level" property="commentLevel" jdbcType="INTEGER" />
     <result column="comment_detail" property="commentDetail" jdbcType="VARCHAR" />
     <result column="comment_time" property="commentTime" jdbcType="VARCHAR" />
-    <result column="product_item_id" property="productItemId" jdbcType="INTEGER" />
+    <result column="product_id" property="productId" jdbcType="INTEGER" />
     <result column="user_id" property="userId" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Base_Column_List" >
-    comment_id, comment_level, comment_detail, comment_time, product_item_id, user_id
+    comment_id, comment_level, comment_detail, comment_time, product_id, user_id
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -24,7 +24,7 @@
   </delete>
   <insert id="insert" parameterType="com.lanqiao.jd.entity.Comment" >
     insert into tb_comment (comment_id, comment_level, comment_detail, 
-      comment_time, product_item_id, user_id
+      comment_time, product_id, user_id
       )
     values (#{commentId,jdbcType=INTEGER}, #{commentLevel,jdbcType=INTEGER}, #{commentDetail,jdbcType=VARCHAR}, 
       #{commentTime,jdbcType=VARCHAR}, #{productItemId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}
@@ -45,8 +45,8 @@
       <if test="commentTime != null" >
         comment_time,
       </if>
-      <if test="productItemId != null" >
-        product_item_id,
+      <if test="productId != null" >
+        product_id,
       </if>
       <if test="userId != null" >
         user_id,
@@ -65,8 +65,8 @@
       <if test="commentTime != null" >
         #{commentTime,jdbcType=VARCHAR},
       </if>
-      <if test="productItemId != null" >
-        #{productItemId,jdbcType=INTEGER},
+      <if test="productId != null" >
+        #{productId,jdbcType=INTEGER},
       </if>
       <if test="userId != null" >
         #{userId,jdbcType=INTEGER},
@@ -86,7 +86,7 @@
         comment_time = #{commentTime,jdbcType=VARCHAR},
       </if>
       <if test="productItemId != null" >
-        product_item_id = #{productItemId,jdbcType=INTEGER},
+        product_id = #{productId,jdbcType=INTEGER},
       </if>
       <if test="userId != null" >
         user_id = #{userId,jdbcType=INTEGER},
@@ -99,15 +99,15 @@
     set comment_level = #{commentLevel,jdbcType=INTEGER},
       comment_detail = #{commentDetail,jdbcType=VARCHAR},
       comment_time = #{commentTime,jdbcType=VARCHAR},
-      product_item_id = #{productItemId,jdbcType=INTEGER},
+      product_id = #{productId,jdbcType=INTEGER},
       user_id = #{userId,jdbcType=INTEGER}
     where comment_id = #{commentId,jdbcType=INTEGER}
   </update>
 
-  <select id="selectByProductItemId" resultType="com.lanqiao.jd.entity.Comment_User" parameterType="java.lang.Integer" >
-    select c.comment_id,c.comment_level,c.comment_detail,c.comment_time,c.product_item_id,u.user_id,u.user_name
+  <select id="selectByProductId" resultType="com.lanqiao.jd.entity.Comment_User" parameterType="java.lang.Integer" >
+    select c.comment_id,c.comment_level,c.comment_detail,c.comment_time,c.product_id,u.user_id,u.user_name
     from tb_comment c, tb_user u
-    where product_item_id = #{productItemId,jdbcType=INTEGER} and c.user_id = u.user_id
+    where product_id = #{productId,jdbcType=INTEGER} and c.user_id = u.user_id
   </select>
 
 
