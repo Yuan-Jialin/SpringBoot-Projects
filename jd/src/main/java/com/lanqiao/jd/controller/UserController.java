@@ -105,7 +105,7 @@ public class UserController {
     @UserLoginToken
     @PostMapping("/insertComment")
     public Result insertComment(Comment comment){
-        //System.out.println("comment:"+comment.toString());
+        System.out.println("comment:"+comment.toString());
         return commentService.insertComment(comment);}
 
 

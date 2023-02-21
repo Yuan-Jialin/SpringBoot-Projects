@@ -27,9 +27,15 @@
                     url:"/product/insertProduct",
                     type:"post",
                     dataType: "json",
-                    date:
-                        $("#form1").serialize(),
+                    data:{
+                        //userName:$("#user_text").val()
+                            businessId:$("#businessId").val(),
+                        productPrice:$("#productPrice").val(),
+                        stock:$("#stock").val(),
+                        productName:$("#productName").val()
+                    },
                     success:function (result) {
+                        console.log(da)
                         console.log(result.code);
                         if(result.code==0){
 
@@ -164,12 +170,13 @@
 </div>
 <div class="addshop">
     <form id="form1">
-        <tr> 商店代号：<input name="businessId" type="text"><br></tr>
+        <tr> 商店代号：<input id="businessId" name="businessId" type="text"><br></tr>
         <td></td>
         <td></td>
         <tr>商品图片：<input name="file" type="file"><br></tr>
-        <tr>商品名称：<input name="productName" type="text"><br></tr>
-        <tr>价格：&nbsp;&nbsp;&nbsp;&nbsp;<input name="productPrice" type="text"><br></tr>
+        <tr>商品名称：<input id="productName" name="productName" type="text"><br></tr>
+        <tr>价格：&nbsp;&nbsp;&nbsp;&nbsp;<input id="productPrice" name="productPrice" type="text"><br></tr>
+        <tr> 库存：<input id="stock" name="stock" type="text"><br></tr>
         <input name="sub_btn" type="button" value="提交">
     </form>
 

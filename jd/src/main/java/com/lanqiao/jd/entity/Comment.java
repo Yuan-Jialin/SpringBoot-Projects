@@ -20,4 +20,11 @@ public class Comment {
 
     private Integer userId;
 
+    public Comment(Integer commentLevel, String commentDetail, String commentTime, Integer productId, Integer userId) {
+        this.commentLevel = commentLevel;
+        this.commentDetail = commentDetail;
+        this.commentTime = commentTime;
+        this.productId = productId;
+        this.userId = userId;
+    }
 }

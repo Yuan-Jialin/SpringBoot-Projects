@@ -22,15 +22,17 @@ public class ProductController {
 
     //插入product，传入图片和product类
     @PostMapping("/insertProduct")
-    public Result insertProduct(@RequestParam(name = "file") MultipartFile file, Product sourceProduct){
+    public Result insertProduct( Product sourceProduct){
         System.out.println("dasdasdadasd");
-        System.out.println(file.toString());
-        String imgUrl = fileUtil.fileUpload(file, 2);
+        System.out.println(sourceProduct.getProductName());
+        //System.out.println(file.toString());
+       // String imgUrl = fileUtil.fileUpload(file, 2);
         Product product = new Product();
-        product.setProductImgUrl(imgUrl);
+        //product.setProductImgUrl(imgUrl);
         product.setBusinessId(sourceProduct.getBusinessId());
         product.setProductName(sourceProduct.getProductName());
         product.setProductPrice(sourceProduct.getProductPrice());
+        product.setStock(sourceProduct.getStock());
         return productService.insertProduct(product);
     }
 

@@ -26,7 +26,9 @@ public class CommentServiceImpl implements CommentService {
             Date date = new Date();
             SimpleDateFormat dateFormat= new SimpleDateFormat("yyyy-MM-dd :hh:mm:ss");
             comment.setCommentTime(dateFormat.format(date));
+            System.out.println("service:"+comment.toString());
             int col = commentMapper.insertSelective(comment);
+            System.out.println(col);
             if (col>0){
                 return Result.createSuccessResult();
             }else {
@@ -36,7 +38,8 @@ public class CommentServiceImpl implements CommentService {
             return  Result.createByFailure("出现错误，联系管理员");
         }
     }
-
+    //service:Comment(commentId=null, commentLevel=3, commentDetail=啊实打实, commentTime=2023-02-20 :04:37:23, productId=1, userId=2)
+//service:Comment(commentId=null, commentLevel=4, commentDetail=啊实打实的, commentTime=2023-02-20 :04:36:48, productId=10, userId=2)
     @Override
     public Result showCommentByProductID(int productId) {
         try{

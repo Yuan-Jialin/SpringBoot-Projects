@@ -13,6 +13,18 @@ public class Product {
 
     private Integer businessId;
 
+    public Product(Integer productId, String productName, Integer productPrice, String productImgUrl, Integer stock, Integer businessId) {
+        this.productId = productId;
+        this.productName = productName;
+        this.productPrice = productPrice;
+        this.productImgUrl = productImgUrl;
+        this.stock = stock;
+        this.businessId = businessId;
+    }
+
+    public Product() {
+    }
+
     public Integer getProductId() {
         return productId;
     }
