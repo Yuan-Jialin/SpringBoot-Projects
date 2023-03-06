@@ -15,10 +15,6 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.FileNotFoundException;
 
-/**
- * @author 刘佳昇
- * @Date 2019/8/13 15:52
- */
 
 @RestController
 public class TestController {

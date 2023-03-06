@@ -5,10 +5,6 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-/**
- * @author 刘佳昇
- * @Date 2019/8/14 16:12
- */
 
 @ControllerAdvice
 public class ExceptionHandle {

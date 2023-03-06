@@ -8,10 +8,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-/**
- * @author 刘佳昇
- * @Date 2019/8/13 17:50
- */
 
 //后台->商家管理页面
 @RestController

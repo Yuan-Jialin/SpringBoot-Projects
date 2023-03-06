@@ -18,10 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.lang.reflect.Method;
 
-/**
- * @author 刘佳昇
- * @Date 2019/8/14 15:11
- */
+
 
 public class AuthenticationInterceptor implements HandlerInterceptor {
     @Autowired
