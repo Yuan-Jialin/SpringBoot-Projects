@@ -7,9 +7,11 @@ import com.example.reggie.entity.Employee;
 import com.example.reggie.service.EmployeeService;
 import com.example.reggie.service.impl.EmployeeServiceImpl;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.DigestUtils;
+
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -90,8 +92,28 @@ public class EmployeeController {
         log.info("page:{} pageSize:{} name:{}",page,pageSize,name);
 
         Page pageInfo=new Page(page,pageSize);
-        
+        LambdaQueryWrapper<Employee>queryWrapper=new LambdaQueryWrapper<>();
+        queryWrapper.like(StringUtils.isNotEmpty(name),Employee::getName,name);
+        queryWrapper.orderByDesc(Employee::getUpdateTime);
+        employeeService.page(pageInfo,queryWrapper);
 
-        return null;
+        return R.success(pageInfo);
+    }
+    /*
+    *
+    * 根据id修改员工信息
+    *
+    * */
+    @PutMapping
+    public R<String> updata(@RequestBody Employee employee,HttpServletRequest request){
+
+
+        log.info(employee.toString());
+        Long employee1 = (Long)request.getSession().getAttribute("employee");
+        employee.setUpdateUser(employee1);
+        employee.setUpdateTime(LocalDateTime.now());
+        employeeService.updateById(employee);
+
+        return R.success("员工信息修改成功");
     }
 }
