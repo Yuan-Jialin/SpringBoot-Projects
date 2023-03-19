@@ -103,6 +103,12 @@ public class EmployeeController {
     *
     * 根据id修改员工信息
     *
+    * 会出现雪花算法丢失精度
+    *
+    * 提供给页面的id  和页面返回的id不一致
+    *
+    * 原因是js会丢失精度
+    *
     * */
     @PutMapping
     public R<String> updata(@RequestBody Employee employee,HttpServletRequest request){
@@ -113,7 +119,6 @@ public class EmployeeController {
         employee.setUpdateUser(employee1);
         employee.setUpdateTime(LocalDateTime.now());
         employeeService.updateById(employee);
-
         return R.success("员工信息修改成功");
     }
 }
