@@ -22,10 +22,12 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
     public void insertFill(MetaObject metaObject) {
         log.info("insert");
         log.info(metaObject.toString());
+        //id是LoginCheckFilter中doFilter方法在进去的
+        long id=BaseContext.getCurrentId();
         metaObject.setValue("createTime", LocalDateTime.now());
         metaObject.setValue("updateTime", LocalDateTime.now());
-        metaObject.setValue("createUser", new Long(1));
-        metaObject.setValue("updateUser", new Long(1));
+        metaObject.setValue("createUser",id);
+        metaObject.setValue("updateUser", id);
     }
 
     /*
@@ -35,8 +37,10 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
     public void updateFill(MetaObject metaObject) {
         log.info("updata");
         log.info(metaObject.toString());
+        //id是LoginCheckFilter中doFilter方法在进去的
+        long id=BaseContext.getCurrentId();
         metaObject.setValue("updateTime", LocalDateTime.now());
-        metaObject.setValue("updateUser", new Long(1));
+        metaObject.setValue("updateUser",id);
 
     }
 }

@@ -1,6 +1,7 @@
 package com.example.reggie.filter;
 
 import com.alibaba.fastjson.JSON;
+import com.example.reggie.common.BaseContext;
 import com.example.reggie.common.R;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -49,6 +50,9 @@ public class LoginCheckFilter implements Filter {
                 response.getWriter().write(JSON.toJSONString(R.error("NOTLOGIN")));
                 return;
             }else{
+                long id= (long) employee;
+                //通过session 方便MymetaObjectHandler（它无法获得session对象）获取当前用户id
+                BaseContext.setCurrentId(id);
                 log.info("用户已经登录,用户id为：{}",employee);
                 //已经登录，直接放行
                 filterChain.doFilter(request,response);
