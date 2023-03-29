@@ -9,4 +9,5 @@ import com.example.reggie.entity.Category;
  * @Date 2023/3/28 15:13
  */
 public interface CategoryService extends IService<Category> {
+    public void remove(Long id);
 }
