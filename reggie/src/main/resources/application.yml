@@ -17,3 +17,7 @@ mybatis-plus:
   global-config:
     db-config:
       id-type: ASSIGN_ID
+
+reggie:
+  img:
+    path: F:\reggieImg\
