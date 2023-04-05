@@ -27,7 +27,9 @@ server:
   port: 8080
 
 
-
+reggie:
+  img:
+    path: F:\jd\
 
 root:
   path: "classpath:/static"

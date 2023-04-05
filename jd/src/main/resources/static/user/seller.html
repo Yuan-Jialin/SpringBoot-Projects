@@ -32,7 +32,8 @@
                             businessId:$("#businessId").val(),
                         productPrice:$("#productPrice").val(),
                         stock:$("#stock").val(),
-                        productName:$("#productName").val()
+                        productName:$("#productName").val(),
+                        file:$("#file")
                     },
                     success:function (result) {
                         console.log(da)
@@ -104,7 +105,8 @@
 
 <!--            <button class="add">添加商品</button>-->
 
-            <button name="add"  class="layui-btn" >添加商品</button>
+            <!--<button name="add"  class="layui-btn" >添加商品</button>-->
+            <a href="add.html">添加商品</a>
 
             <div class="find">
                 <input name="find" type="text" placeholder="查找商品">
@@ -172,8 +174,9 @@
     <form id="form1">
         <tr> 商店代号：<input id="businessId" name="businessId" type="text"><br></tr>
         <td></td>
-        <td></td>
-        <tr>商品图片：<input name="file" type="file"><br></tr>
+
+        <tr>商品图片：<input id="file" name="file" type="file"><br></tr>
+
         <tr>商品名称：<input id="productName" name="productName" type="text"><br></tr>
         <tr>价格：&nbsp;&nbsp;&nbsp;&nbsp;<input id="productPrice" name="productPrice" type="text"><br></tr>
         <tr> 库存：<input id="stock" name="stock" type="text"><br></tr>
