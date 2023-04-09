@@ -6,9 +6,11 @@ import com.lanqiao.jd.entity.DetailsPageSelect;
 import com.lanqiao.jd.entity.ProdBusiComm;
 import com.lanqiao.jd.entity.Product;
 import com.lanqiao.jd.entity.UserAddress;
+import com.lanqiao.jd.service.OneService;
 import com.lanqiao.jd.service.ProductService;
 import com.lanqiao.jd.util.FileUtil;
 import com.lanqiao.jd.util.Result;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@Slf4j
 public class ProductServiceImpl implements ProductService {
 
 
@@ -78,6 +81,7 @@ public class ProductServiceImpl implements ProductService {
     public Result selectProduct(int productId) {
         try {
             List<Product> productList = productMapper.selectAllProductByBusinessId(productId);
+
             return Result.createSuccessResult(productList.size(),productList);
         }catch (Exception e){
             return Result.createByFailure("查询异常");
@@ -107,15 +111,20 @@ public class ProductServiceImpl implements ProductService {
             return Result.createByFailure("出现错误，联系管理员");
         }
     }
-
+    @Autowired
+    OneService oneService;
     //商品想详情页
     @Override
     public Result productItem(int userId, int productId) {
         List<Object> list = new ArrayList<Object>();
         try{
+           // Product byId = oneService.getById(productId);
+           // log.info(byId.toString());
+            Product product = productMapper.selectByPrimaryKey(productId);
             //多表联合查询->新建一个类
             System.out.println("111");
             DetailsPageSelect detailsPageSelect = productMapper.detailPage(productId);
+            detailsPageSelect.setDetail1(product.getProductImgUrl());
 
             System.out.println(detailsPageSelect.toString());
             list.add(detailsPageSelect);
