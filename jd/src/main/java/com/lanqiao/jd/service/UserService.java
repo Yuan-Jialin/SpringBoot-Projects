@@ -2,7 +2,11 @@ package com.lanqiao.jd.service;
 
 import com.lanqiao.jd.entity.User;
 import com.lanqiao.jd.util.Result;
-
+/**
+ * @Author 袁佳林
+ * @Description
+ * @Date 2023/3/17 16:12
+ */
 public interface UserService {
 
     Result verifyPhoneNumber(String phoneNumber);
@@ -17,6 +21,8 @@ public interface UserService {
     User findUserById(Integer userId);
 
     User findByUsername(User user);
+
+
 
     //余额充值
     Result addBalance(User user);

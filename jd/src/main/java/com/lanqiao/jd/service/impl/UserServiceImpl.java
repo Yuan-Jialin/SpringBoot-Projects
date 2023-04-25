@@ -10,7 +10,11 @@ import com.lanqiao.jd.util.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
+/**
+ * @Author 袁佳林
+ * @Description
+ * @Date 2023/3/7 16:22
+ */
 @Service
 public class UserServiceImpl implements UserService {
     @Autowired

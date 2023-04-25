@@ -3,10 +3,10 @@ package com.lanqiao.jd.service;
 import com.lanqiao.jd.entity.User;
 
 /**
- * @author 刘佳昇
- * @Date 2019/8/14 15:23
+ * @Author 袁佳林
+ * @Description
+ * @Date 2023/1/7 19:22
  */
-
 public interface TokenService {
     String getToken(User user);
 

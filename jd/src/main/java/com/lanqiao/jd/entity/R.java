@@ -22,7 +22,7 @@ public class R<T> {
     private Map map = new HashMap(); //动态数据
 
 
-    //牛逼
+
     public static <T> R<T> success(T object) {
         R<T> r = new R<T>();
         r.data = object;

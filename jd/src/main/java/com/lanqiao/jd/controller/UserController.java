@@ -22,7 +22,11 @@ import java.util.List;
 
 import static com.lanqiao.jd.util.CodeUtil.getNewcode;
 import static com.lanqiao.jd.util.CodeUtil.setNewcode;
-
+/**
+ * @Author 袁佳林
+ * @Description
+ * @Date 2023/2/1 15:39
+ */
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -184,7 +188,7 @@ public class UserController {
         return result;
     }
 
-
+    //test
     //发送手机验证码
     @PostMapping("/sendMsg")
     //need:phoneNumber

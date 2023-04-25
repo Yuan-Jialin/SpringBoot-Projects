@@ -10,7 +10,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-
+/**
+ * @Author 袁佳林
+ * @Description
+ * @Date 2023/2/1 22:39
+ */
 @RestController
 @RequestMapping("/productItem")
 public class ProductItemController {
