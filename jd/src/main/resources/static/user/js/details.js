@@ -155,17 +155,18 @@
             },
             success:function (result) {
 
-                console.log();
+                console.log(result);
                 $("div[class='name']").text(result.data[0].productName);
-                $("div[class='address']").append(result.data[2][0].address);
+
                 $("div[class='test']").text(result.data[0].productItemId);
                 $(".price span").eq(1).text(result.data[0].productPrice);
                 $("div[class='business']").text("由"+result.data[0].businessName+"配送");
                 $("#one").src="/common/download"+result.data[0].detail1;
                 $(".lie li").eq(1).text("评论");
                 document.getElementById('one').src="/common/download?name="+result.data[0].detail1;
+                $("div[class='address']").append(result.data[2][0].address);
                 var up =$(".up ul li");
-                $(up[0]).text("/common/download"+result.data[0].detail1);
+                $(up[0]).text("/common/download?name="+result.data[0].detail1);
                 $(up[1]).text(result.data[0].detail2);
                 $(up[2]).text(result.data[0].detail3);
                 $(up[3]).text(result.data[0].detail4);

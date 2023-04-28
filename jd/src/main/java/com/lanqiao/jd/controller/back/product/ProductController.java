@@ -6,10 +6,7 @@ import com.lanqiao.jd.service.ProductService;
 import com.lanqiao.jd.util.FileUtil;
 import com.lanqiao.jd.util.Result;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 /**
  * @Author 袁佳林
@@ -53,6 +50,8 @@ public class ProductController {
     public Result selectProduct(@RequestParam(name = "businessId") int businessId){
         return productService.selectProduct(businessId);
     }
+
+
 
     //后台商家管理模块->模糊查询
     //need:businessId productName

@@ -112,4 +112,7 @@
     from tb_user
     where phone_number = #{phoneNumber,jdbcType=INTEGER}
   </select>
+
+
+
 </mapper>

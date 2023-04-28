@@ -16,10 +16,46 @@
 
         // 设置表格可编辑
         // 可一次设置多个，例如：EditTables(tb1,tb2,tb2,......)
-        EditTables(tabProduct);
+
     </script>
     <script>
         $(function () {
+
+            $.ajax({
+                url:"/product/selectProduct",
+                type:"post",
+                dataType: "json",
+                data:{
+                    businessId: $.cookie('userId'),
+                },
+                success: function (result) {
+                    console.log(result)
+                    if(result.code == 0){
+                      let $modle=$(".list").clone(true);
+                      $(".list").eq(0).detach();
+                        for(let i = 0; i <result.count; i++) {
+                            let $node = $modle.children();
+                            let url ="/common/download?name="+ result.data[i].productImgUrl;
+                            //$node.eq(1).html(result.data[i].productImgUrl);
+                            $node.eq(0).html(result.data[i].businessName);
+                            //$node.eq(1).append("<img src='' />").eq(0).attr('src',url);
+                            $node.eq(1).children().eq(0).attr("src",url);
+                            $node.eq(2).html(result.data[i].productName);
+                            $node.eq(3).html(result.data[i].productId);
+                            $node.eq(4).html(result.data[i].productPrice);
+
+                            //$node.eq(2).children().eq(2).html(result.data[i].commentCount + "条评论");
+
+
+                        $(".layui-table").append($modle);
+                            $modle = $(".list").eq(0).clone(true);
+
+                        }
+
+                        }
+                    }
+
+            })
 
             $("input[name='sub_btn']").click(function () {
                 alert($("#form1").serialize());
@@ -54,6 +90,8 @@
             $("input[name='del']").click(function () {
                 $(this).parent().parent().detach();
             });
+
+
 
             // function  add() {
             //    $(".addshop").show();
@@ -131,13 +169,14 @@
                 </tr>
                 </thead>
                 <tbody id="first">
-                <tr id="two">
-                    <td>111</td>
-                    <td>222</td>
-                    <td>333</td>
-                    <td>444</td>
-                    <td>333</td>
+                <tr  class="list">
+                   <td></td>
+                    <td><img src=""/></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
                     <td><input name="del" type="button" value="删除"/></td>
+
                 </tr>
                 </tbody>
             </table>
