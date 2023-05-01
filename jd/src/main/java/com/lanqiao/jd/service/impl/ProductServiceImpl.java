@@ -55,22 +55,25 @@ public class ProductServiceImpl implements ProductService {
 
             product = productMapper.selectByPrimaryKey(productId);
 
-            String absPath = fileUtil.rootPath +"static"+ product.getProductImgUrl();
+            String absPath = "F:\\jd\\"+ product.getProductImgUrl();
 
             File file = new File(absPath);
 
             System.out.println(absPath);
             if(file.exists()){
-                file.delete();
+                //file.delete();
                 System.out.println("删除成功!");
             }
+            System.out.println("productID=="+productId);
             int col = productMapper.deleteByPrimaryKey(productId);
+            System.out.println("col=="+col);
             if (col>0){
                 return Result.createSuccessResult();
             }else {
                 return Result.createByFailure("删除错误");
             }
         }catch (Exception e){
+            System.out.println(e.toString());
             return  Result.createByFailure("出现错误，联系管理员");
         }
     }

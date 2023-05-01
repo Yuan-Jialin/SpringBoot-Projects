@@ -89,6 +89,16 @@
 
             $("input[name='del']").click(function () {
                 $(this).parent().parent().detach();
+                console.log($(this).parent().prev().prev().html());
+                $.ajax({
+                    url:"/product/delectProduct",
+                    type:"post",
+                    dataType: "json",
+                    data:{
+                        productId:$(this).parent().prev().prev().html()
+                    }
+                })
+
             });
 
 
