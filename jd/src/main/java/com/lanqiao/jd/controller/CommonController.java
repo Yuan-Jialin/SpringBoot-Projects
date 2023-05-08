@@ -52,7 +52,6 @@ public class CommonController {
     }
     @GetMapping("/download")
     public void download(String name, HttpServletResponse response)  {
-
         try {
             FileInputStream fileInputStream=new FileInputStream(BasePath+name);
             ServletOutputStream outputStream = response.getOutputStream();

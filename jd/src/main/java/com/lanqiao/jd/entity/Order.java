@@ -1,7 +1,9 @@
 package com.lanqiao.jd.entity;
 
-import java.math.BigDecimal;
+import com.baomidou.mybatisplus.annotation.TableName;
 
+import java.math.BigDecimal;
+@TableName("tb_order")
 public class Order {
     private Integer orderId;
 

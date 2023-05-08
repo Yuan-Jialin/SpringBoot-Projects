@@ -8,13 +8,73 @@
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/index.js" rel="script"></script>
     <script src="js/jquery-cookie.js"></script>
+    <script src="http://api.map.baidu.com/api?v=1.2" type="text/javascript"></script>
+    <script>
+        $(function(){
+            getLocation();
+        })
+
+        function getLocation() {
+            var options = {
+                enableHighAccuracy : true,
+                maximumAge : 1000
+            }
+            if (navigator.geolocation) {
+                //浏览器支持geolocation
+                navigator.geolocation.getCurrentPosition(onSuccess, onError,
+                    options);
+            } else {
+                //浏览器不支持geolocation
+                alert('您的浏览器不支持地理位置定位');
+            }
+        }
+        //成功时
+        function onSuccess(position) {
+            debugger
+            //返回用户位置
+            //经度
+            var longitude = position.coords.longitude;
+            //纬度
+            var latitude = position.coords.latitude;
+            /* alert('经度'+longitude+'，纬度'+latitude); */
+
+            //根据经纬度获取地理位置，不太准确，获取城市区域还是可以的
+            var map = new BMap.Map("allmap");
+            var point = new BMap.Point(longitude, latitude);
+            var gc = new BMap.Geocoder();
+            gc.getLocation(point, function(rs) {
+                var addComp = rs.addressComponents;
+                console.log(addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber);
+                // $("#inp").html(addComp.city);
+                $("#lo").html(addComp.province);
+            });
+        }
+        //失败时
+        function onError(error) {
+            switch (error.code) {
+                case 1:
+                    alert("位置服务被拒绝，请点击刷新重试！");
+                    break;
+                case 2:
+                    alert("暂时获取不到位置信息，请点击刷新重试！");
+                    break;
+                case 3:
+                    alert("获取信息超时，请点击刷新重试！");
+                    break;
+                case 4:
+                    alert("未知错误，请点击刷新重试！");
+                    break;
+            }
+        }
+
+    </script>
 </head>
 <body>
 <div id="menu">
     <div id="menu_content">
         <ul id="m_left">
             <li class="iconfont red font14"></li>
-            <li><a>北京</a></li>
+            <li><a id="lo">湖南</a></li>
         </ul>
         <ul id="m_right">
             <li id="m_right_first"><a href="login.html"><span class="red">你好，请登录 &nbsp;</span></a><a href="Login_1.html">免费注册</a></li>
@@ -114,7 +174,6 @@
                 <li><a><img src="https://img10.360buyimg.com/pop/s590x470_jfs/t1/44671/18/7264/100599/5d4d51ecEdc204b9c/197c5440627da45a.jpg.webp"></a></li>
                 <li><a><img src="https://img14.360buyimg.com/da/s590x470_jfs/t16663/131/1424030023/110119/f5bc9082/5acb3b19Nc3efd8d0.jpg.webp"></a></li>
                 <li><a><img src="https://img12.360buyimg.com/pop/s590x470_jfs/t1/50743/35/7658/79199/5d561facE6cbc39e4/f8683942982fb4a4.jpg.webp"></a></li>
-                <li><a><img src="https://imgcps.jd.com/ling/45763076372/5a6255S15riF5YeJ5a2j/54mp576O5Lu35LyY6LaF55yB6Jaq/p-5bd8253082acdd181d02fa47/54d587e7.jpg"></a></li>
                 <li><a><img src="https://img11.360buyimg.com/pop/s590x470_jfs/t1/63089/39/7467/91978/5d567261E027c9de7/c250d23d00906994.jpg.webp"></a></li>
                 <li><a><img src="https://img11.360buyimg.com/pop/s590x470_jfs/t1/51171/30/7368/91776/5d4d2e1bE6b5b561c/ebac9a3def809839.jpg.webp"></a></li>
             </ul>
@@ -261,4 +320,6 @@
     <!--</div>-->
 </div>
 </body>
+
+<
 </html>

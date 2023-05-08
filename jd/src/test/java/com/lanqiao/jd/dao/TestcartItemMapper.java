@@ -1,6 +1,6 @@
 package com.lanqiao.jd.dao;
 
-import com.lanqiao.jd.entity.Cart_Product_Business;
+import  com.lanqiao.jd.entity.Cart_Product_Business;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

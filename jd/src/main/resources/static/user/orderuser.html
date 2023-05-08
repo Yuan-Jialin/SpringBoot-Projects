@@ -31,8 +31,8 @@
                 success: function (result) {
                     console.log(result)
                     if(result.code == 0){
-                      let $modle=$(".list").clone(true);
-                      $(".list").eq(0).detach();
+                        let $modle=$(".list").clone(true);
+                        $(".list").eq(0).detach();
                         for(let i = 0; i <result.count; i++) {
                             let $node = $modle.children();
                             let url ="/common/download?name="+ result.data[i].productImgUrl;
@@ -47,13 +47,13 @@
                             //$node.eq(2).children().eq(2).html(result.data[i].commentCount + "条评论");
 
 
-                        $(".layui-table").append($modle);
+                            $(".layui-table").append($modle);
                             $modle = $(".list").eq(0).clone(true);
 
                         }
 
-                        }
                     }
+                }
 
             })
 
@@ -65,7 +65,7 @@
                     dataType: "json",
                     data:{
                         //userName:$("#user_text").val()
-                            businessId:$("#businessId").val(),
+                        businessId:$("#businessId").val(),
                         productPrice:$("#productPrice").val(),
                         stock:$("#stock").val(),
                         productName:$("#productName").val(),
@@ -128,17 +128,17 @@
 
     <div class="left-1">
         <label>
-            <a href="#">商品管理</a>
+            <a href="seller.html">商品管理</a>
         </label>
     </div>
     <div class="left-1">
         <label>
-            <a href="orderuser.html"> 订单管理</a>
+            <a href="#"> 订单管理</a>
         </label>
     </div>
     <div class="left-1">
         <label>
-           <a href="#"> 我的配送</a>
+            <a href="#"> 我的配送</a>
         </label>
     </div>
 
@@ -147,7 +147,7 @@
     <div class="right-1">
         <div>
 
-<!--            <button class="add">添加商品</button>-->
+            <!--            <button class="add">添加商品</button>-->
 
             <!--<button name="add"  class="layui-btn" >添加商品</button>-->
             <a href="add.html">添加商品</a>
@@ -167,10 +167,10 @@
                 <thead>
                 <tr id="head">
 
-                    <th EditType="shopPhoto">商品图片</th>
-                    <th EditType="productName">商品名称</th>
-                    <th EditType="shopId">商品编码</th>
-                    <th EditType="price">价格</th>
+                    <th EditType="shopPhoto">订单状态</th>
+                    <th EditType="productName">顾客名</th>
+                    <th EditType="shopId">顾客地址</th>
+                    <th EditType="price">总价</th>
                     <th >操作</th>
                 </tr>
                 </thead>
@@ -189,26 +189,26 @@
         </div>
 
 
-<!--        <ul>-->
-<!--            <li><input name="all" type="checkbox">全选</li>-->
-<!--            <li>商品图片</li>-->
-<!--            <li>产品名称</li>-->
-<!--            <li>价格</li>-->
-<!--            <li class="num">数量</li>-->
+        <!--        <ul>-->
+        <!--            <li><input name="all" type="checkbox">全选</li>-->
+        <!--            <li>商品图片</li>-->
+        <!--            <li>产品名称</li>-->
+        <!--            <li>价格</li>-->
+        <!--            <li class="num">数量</li>-->
 
-<!--            <li>操作</li>-->
-<!--        </ul>-->
-<!--        <ul>-->
-<!--            <li><input name="one" type="checkbox"></li>-->
-<!--            <li></li>-->
-<!--            <li></li>-->
-<!--            <li class="num"><input type="button" value="-" @click="changeDel(index)"> <input name="num" type="text"-->
-<!--                                                                                             v-model="product.num">-->
-<!--                <input type="button" value="+" @click="changeAdd(index)">-->
-<!--            </li>-->
-<!--            <li></li>-->
-<!--            <li><span @click="del">删除</span></li>-->
-<!--        </ul>-->
+        <!--            <li>操作</li>-->
+        <!--        </ul>-->
+        <!--        <ul>-->
+        <!--            <li><input name="one" type="checkbox"></li>-->
+        <!--            <li></li>-->
+        <!--            <li></li>-->
+        <!--            <li class="num"><input type="button" value="-" @click="changeDel(index)"> <input name="num" type="text"-->
+        <!--                                                                                             v-model="product.num">-->
+        <!--                <input type="button" value="+" @click="changeAdd(index)">-->
+        <!--            </li>-->
+        <!--            <li></li>-->
+        <!--            <li><span @click="del">删除</span></li>-->
+        <!--        </ul>-->
 
     </div>
 

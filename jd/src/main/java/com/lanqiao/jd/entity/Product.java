@@ -1,5 +1,6 @@
 package com.lanqiao.jd.entity;
 
+
 public class Product {
     private Integer productId;
 

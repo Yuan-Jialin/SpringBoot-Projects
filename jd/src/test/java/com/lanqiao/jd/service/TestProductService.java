@@ -18,6 +18,6 @@ public class TestProductService {
         //Integer productId, String productName, Integer productPrice, String productImgUrl, Integer stock, Integer businessId
         @Test
         void TestInsert(){
-            productService.insertProduct(new Product(5,"AV棒",20,"",10,1));
+                productService.insertProduct(new Product(5,"汤臣一品",20,"",10,1));
         }
 }

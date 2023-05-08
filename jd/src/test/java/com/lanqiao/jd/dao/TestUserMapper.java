@@ -45,7 +45,7 @@ public class TestUserMapper {
 
     @Test
     void TestinsertSelective(){
-        userMapper.insertSelective(new User("杨帆","555"));
+        userMapper.insertSelective(new User("袁佳林","555"));
     }
 
     @Test
