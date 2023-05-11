@@ -1,10 +1,12 @@
 package com.lanqiao.jd.entity;
 
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
 import java.math.BigDecimal;
 @TableName("tb_order")
 public class Order {
+    @TableId
     private Integer orderId;
 
     private String orderStatus;
@@ -63,5 +65,17 @@ public class Order {
 
     public void setTotalPrice(BigDecimal totalPrice) {
         this.totalPrice = totalPrice;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "orderId=" + orderId +
+                ", orderStatus='" + orderStatus + '\'' +
+                ", userId=" + userId +
+                ", creatTime='" + creatTime + '\'' +
+                ", userAddressId=" + userAddressId +
+                ", totalPrice=" + totalPrice +
+                '}';
     }
 }

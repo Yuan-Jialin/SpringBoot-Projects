@@ -22,28 +22,28 @@
         $(function () {
 
             $.ajax({
-                url:"/product/selectProduct",
-                type:"post",
+                url: "/yang/fan",
+                type: "get",
                 dataType: "json",
-                data:{
+                data: {
                     businessId: $.cookie('userId'),
                 },
                 success: function (result) {
                     console.log(result)
-                    if(result.code == 0){
-                        let $modle=$(".list").clone(true);
+                    if (result.code == 0) {
+                        let $modle = $(".list").clone(true);
                         $(".list").eq(0).detach();
-                        for(let i = 0; i <result.count; i++) {
+                        for (let i = 0; i < result.count; i++) {
                             let $node = $modle.children();
-                            let url ="/common/download?name="+ result.data[i].productImgUrl;
+                            let url = "/common/download?name=" + result.data[i].productImgUrl;
                             //$node.eq(1).html(result.data[i].productImgUrl);
                             //$node.eq(0).html(result.data[i].businessName);
                             //$node.eq(1).append("<img src='' />").eq(0).attr('src',url);
-                            $node.eq(0).children().eq(0).attr("src",url);
-                            $node.eq(1).html(result.data[i].productName);
-                            $node.eq(2).html(result.data[i].productId);
-                            $node.eq(3).html(result.data[i].productPrice);
-
+                            $node.eq(0).html(result.data[i].id)
+                            $node.eq(1).html(result.data[i].status)
+                            $node.eq(2).html(result.data[i].username);
+                            $node.eq(3).html(result.data[i].address);
+                            $node.eq(4).html(result.data[i].price);
                             //$node.eq(2).children().eq(2).html(result.data[i].commentCount + "条评论");
 
 
@@ -60,27 +60,27 @@
             $("input[name='sub_btn']").click(function () {
                 alert($("#form1").serialize());
                 $.ajax({
-                    url:"/product/insertProduct",
-                    type:"post",
+                    url: "/product/insertProduct",
+                    type: "post",
                     dataType: "json",
-                    data:{
+                    data: {
                         //userName:$("#user_text").val()
-                        businessId:$("#businessId").val(),
-                        productPrice:$("#productPrice").val(),
-                        stock:$("#stock").val(),
-                        productName:$("#productName").val(),
-                        file:$("#file")
+                        businessId: $("#businessId").val(),
+                        productPrice: $("#productPrice").val(),
+                        stock: $("#stock").val(),
+                        productName: $("#productName").val(),
+                        file: $("#file")
                     },
-                    success:function (result) {
+                    success: function (result) {
                         console.log(da)
                         console.log(result.code);
-                        if(result.code==0){
+                        if (result.code == 0) {
 
                             alert("插入成功！");
-                        }else {
+                        } else {
                             alert("插入失败！");
                         }
-                    },error:function () {
+                    }, error: function () {
                         alert("请求响应失败！");
                     }
                 })
@@ -91,16 +91,15 @@
                 $(this).parent().parent().detach();
                 console.log($(this).parent().prev().prev().html());
                 $.ajax({
-                    url:"/product/delectProduct",
-                    type:"post",
+                    url: "/yang/delete",
+                    type: "post",
                     dataType: "json",
-                    data:{
-                        productId:$(this).parent().prev().prev().html()
+                    data: {
+                        id: $(this).parent().prev().prev().prev().prev().prev().html()
                     }
                 })
 
             });
-
 
 
             // function  add() {
@@ -111,7 +110,23 @@
 
             })
 
+
+            $("input[name='fan']").click(function () {
+
+                console.log($(this).parent().prev().prev().html());
+                $.ajax({
+                    url: "/yang/fahuo",
+                    type: "post",
+                    dataType: "json",
+                    data: {
+                        id: $(this).parent().prev().prev().prev().prev().prev().html()
+                    }
+                });
+                $(this).parent().prev().prev().prev().prev().html("发货中");
+            });
+
         })
+
     </script>
 
 
@@ -121,7 +136,7 @@
     <div class="w">
         <a href="www.jd.com" class="logo">
         </a>
-        <div class="logo_title">商品管理</div>
+        <div class="logo_title">订单管理</div>
     </div>
 </div>
 <div id="left-item">
@@ -166,22 +181,25 @@
                 </colgroup>
                 <thead>
                 <tr id="head">
-
+                    <th EditType="id">订单编号</th>
                     <th EditType="shopPhoto">订单状态</th>
                     <th EditType="productName">顾客名</th>
                     <th EditType="shopId">顾客地址</th>
                     <th EditType="price">总价</th>
-                    <th >操作</th>
+                    <th>操作</th>
+
                 </tr>
                 </thead>
                 <tbody id="first">
-                <tr  class="list">
-
+                <tr class="list">
+                    <td></td>
                     <td><img src=""/></td>
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td><input name="del" type="button" value="删除"/></td>
+                    <td><input name="del" type="button" value="删除"/>
+                        <input name="fan" type="button" value="发货"/>
+                    </td>
 
                 </tr>
                 </tbody>

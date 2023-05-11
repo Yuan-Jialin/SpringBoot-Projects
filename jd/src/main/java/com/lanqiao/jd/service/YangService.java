@@ -9,4 +9,6 @@ import com.lanqiao.jd.entity.Order;
  * @Date 2023/5/7 21:35
  */
 public interface YangService extends IService<Order> {
+
+
 }

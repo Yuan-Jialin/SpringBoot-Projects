@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
+
 /**
  * @Author 袁佳林
  * @Description
@@ -13,9 +15,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class YJLOrder {
-
+    private int id;
     private String status;
     private String username;
         private String address;
-        private double price;
+        private BigDecimal price;
 }

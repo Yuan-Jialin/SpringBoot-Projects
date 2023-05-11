@@ -50,4 +50,12 @@ public class UserAddressServiceImpl implements UserAddressService {
         }
     }
 
+    @Override
+    public UserAddress getAddressByAddressId(int userAddressId) {
+
+            UserAddress userAddress = userAddressMapper.selectByPrimaryKey(userAddressId);
+            return userAddress;
+    }
+
+
 }

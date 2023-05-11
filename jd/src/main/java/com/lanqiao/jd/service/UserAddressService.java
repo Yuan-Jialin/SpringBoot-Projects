@@ -9,4 +9,6 @@ public interface UserAddressService {
     public Result deleteUserAddress(int userAddressId);
 
     public Result getAddress(int userId);
+
+    public UserAddress getAddressByAddressId(int userAddressId);
 }
