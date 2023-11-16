@@ -5,6 +5,7 @@ import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.Claim;
 import com.auth0.jwt.interfaces.DecodedJWT;
+import com.yjl.utils.JwtUtil;
 import org.junit.jupiter.api.Test;
 
 import java.util.Date;
@@ -22,9 +23,18 @@ public class JwtTest {
     public void TestGen() {
         Map<String, Object> claims = new HashMap<>();
         claims.put("id", 1);
-        claims.put("username", "张三");
+        claims.put("username", "1");
         String sign = JWT.create().withClaim("user", claims).withExpiresAt(new Date(System.currentTimeMillis() + 1000 * 60 * 30)).sign(Algorithm.HMAC256("袁佳林万岁"));
         System.out.println(sign);
+    }
+
+    @Test
+    public void xiu(){
+        Map<String, Object> claims = new HashMap<>();
+        claims.put("id", 3);
+        claims.put("username", "jahup");
+        String string = JwtUtil.genToken(claims);
+        System.out.println(string);
     }
 
     @Test
