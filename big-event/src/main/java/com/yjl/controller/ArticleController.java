@@ -1,9 +1,11 @@
 package com.yjl.controller;
 
+import com.yjl.pojo.Article;
 import com.yjl.pojo.Result;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.yjl.service.ArticleService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @Author: DLMU 袁佳林
@@ -13,10 +15,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/article")
 public class ArticleController {
-    @GetMapping("/list")
-    public Result<String>list(){
-
-        return Result.success("无产阶级万岁");
+    @Autowired
+    private ArticleService articleService;
+    @PostMapping
+    public Result add(@RequestBody @Validated Article article) {
+        articleService.add(article);
+        return Result.success();
     }
 
 }
