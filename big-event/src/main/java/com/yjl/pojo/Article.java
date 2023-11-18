@@ -11,18 +11,25 @@ import org.hibernate.validator.constraints.URL;
 import java.time.LocalDateTime;
 @Data
 public class Article {
+    public interface add{
+
+    }
+    public interface update{
+
+    }
+    @NotNull(groups ={update.class} )
     private Integer id;//主键ID
-    @NotEmpty
-    @Pattern(regexp = "^\\S{1,10}$")
+    @NotEmpty(groups = {add.class,update.class})
+    @Pattern(regexp = "^\\S{1,10}$",groups = {add.class,update.class})
     private String title;//文章标题
-    @NotEmpty
+    @NotEmpty(groups = {add.class,update.class})
     private String content;//文章内容
-    @NotEmpty
-    @URL
+    @NotEmpty(groups = {add.class,update.class})
+    @URL(groups = {add.class,update.class})
     private String coverImg;//封面图像
-    @State
+    @State(groups = {add.class,update.class})
     private String state;//发布状态 已发布|草稿
-    @NotNull
+    @NotNull(groups = {add.class,update.class})
     private Integer categoryId;//文章分类id
     private Integer createUser;//创建人ID
     private LocalDateTime createTime;//创建时间
