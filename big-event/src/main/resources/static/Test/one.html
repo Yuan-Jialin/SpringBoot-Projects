@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <h1>{{msg}}</h1>
+</div>
+<script type="module">
+    import {createApp} from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js';
+
+    createApp({
+        data(){
+            return{
+                msg:'hello vue3'
+            }
+        }
+    }).mount("#app");
+</script>
+
+</body>
+</html>
