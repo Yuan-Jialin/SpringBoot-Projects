@@ -37,23 +37,23 @@ public class UserController {
     private StringRedisTemplate redisTemplate;
 
     @PostMapping("/register")
-    public Result register(@Pattern(regexp = "^\\S{5,16}$")String userName, @Pattern(regexp = "^\\S{5,16}$")String passWord) {
+    public Result register(@Pattern(regexp = "^\\S{5,16}$")String username, @Pattern(regexp = "^\\S{5,16}$")String password) {
 
-        User user = userService.findUserByName(userName);
+        User user = userService.findUserByName(username);
         if (user == null) {
-            userService.register(userName, Md5Util.getMD5String(passWord));
+            userService.register(username, Md5Util.getMD5String(password));
             return Result.success();
         } else {
             return Result.error("用户名已经被使用");
         }
     }
     @PostMapping("/login")
-    public Result login(@Pattern(regexp = "^\\S{5,16}$")String userName, @Pattern(regexp = "^\\S{5,16}$")String passWord){
+    public Result login(@Pattern(regexp = "^\\S{5,16}$")String userName, @Pattern(regexp = "^\\S{5,16}$")String password){
         User user = userService.findUserByName(userName);
         if(user==null){
             return Result.error("用户名不存在");
         }
-        if(Md5Util.getMD5String(passWord).equals(user.getPassword())){
+        if(Md5Util.getMD5String(password).equals(user.getPassword())){
             Map<String,Object>claims=new HashMap<>();
             claims.put("id",user.getId());
             claims.put("username",userName);
