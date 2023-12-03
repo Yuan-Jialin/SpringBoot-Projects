@@ -48,15 +48,15 @@ public class UserController {
         }
     }
     @PostMapping("/login")
-    public Result login(@Pattern(regexp = "^\\S{5,16}$")String userName, @Pattern(regexp = "^\\S{5,16}$")String password){
-        User user = userService.findUserByName(userName);
+    public Result login(@Pattern(regexp = "^\\S{5,16}$")String username, @Pattern(regexp = "^\\S{5,16}$")String password){
+        User user = userService.findUserByName(username);
         if(user==null){
             return Result.error("用户名不存在");
         }
         if(Md5Util.getMD5String(password).equals(user.getPassword())){
             Map<String,Object>claims=new HashMap<>();
             claims.put("id",user.getId());
-            claims.put("username",userName);
+            claims.put("username",username);
             String string = JwtUtil.genToken(claims);
             ValueOperations<String, String> operations = redisTemplate.opsForValue();
             operations.set(string,string,1, TimeUnit.HOURS);
