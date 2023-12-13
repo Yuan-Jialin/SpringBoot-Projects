@@ -11,7 +11,7 @@
         </where>
         order by create_time desc
     </select>
-    <update id="update" parameterMap="com.sky.entity.Employee">
+    <update id="update" parameterType="com.sky.entity.Employee">
         update employee
         <set>
             <if test="name!=null">
