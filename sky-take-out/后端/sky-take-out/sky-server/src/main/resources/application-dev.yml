@@ -6,3 +6,8 @@ sky:
     database: sky_take_out
     username: root
     password: mysql
+  alioss:
+    endpoint: oss-cn-beijing.aliyuncs.com
+    access-key-id: LTAI5tKpZft5KKWCDbEgmJfn
+    access-key-secret: h0M4EF9OJdLaP4CVJuvrQHveLEXKnS
+    bucket-name: yjl-big-event
