@@ -76,9 +76,11 @@ public class DishServiceImpl implements DishService {
         if(setmealIds!=null&& !setmealIds.isEmpty()){
             throw new DeletionNotAllowedException(MessageConstant.DISH_BE_RELATED_BY_SETMEAL);
         }
-        for (Long id : ids) {
+       /* for (Long id : ids) {
             dishMapper.deleteById(id);
             dishFlavorMapper.deleteByDishId(id);
-        }
+        }*/
+        dishMapper.deleteByIds(ids);
+        dishFlavorMapper.deleteByDishIds(ids);
     }
 }

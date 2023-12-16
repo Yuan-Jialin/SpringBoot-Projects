@@ -23,5 +23,12 @@
         </where>
         order by d.create_time desc
     </select>
-
+    <select id="deleteByIds">
+        delete
+        from dish
+        where in
+        <foreach collection="ids" open="(" close=")" separator="," item="id">
+            #{id}
+        </foreach>
+    </select>
 </mapper>
