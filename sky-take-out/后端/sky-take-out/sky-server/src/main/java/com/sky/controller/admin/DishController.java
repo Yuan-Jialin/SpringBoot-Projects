@@ -78,4 +78,16 @@ public class DishController {
         List<Dish> list = dishService.list(categoryId);
         return Result.success(list);
     }
+
+    @PostMapping("/status/{status}")
+    @ApiOperation("菜品起售停售")
+    public Result<String> startOrStop(@PathVariable Integer status, Long id) {
+        dishService.startOrStop(status, id);
+
+        //将所有的菜品缓存数据清理掉，所有以dish_开头的key
+        //cleanCache("dish_*");
+
+        return Result.success();
+    }
+
 }
