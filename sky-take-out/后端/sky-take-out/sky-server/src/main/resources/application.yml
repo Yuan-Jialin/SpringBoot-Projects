@@ -53,3 +53,7 @@ sky:
   wechat:
     appid: ${sky.wechat.appid}
     secret: ${sky.wechat.secret}
+  shop:
+    address: 湖南省长沙市雨花区
+  baidu:
+    ak: y2Suf2DEVG3FKsOVcG7DHUFIp0XyQbgT
