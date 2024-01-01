@@ -100,5 +100,7 @@ public interface OrderService {
      */
     void complete(Long id);
 
-   // void checkOutOfRange(String address);
+    void reminder(Long id);
+
+    // void checkOutOfRange(String address);
 }
