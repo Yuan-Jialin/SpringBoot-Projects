@@ -3,8 +3,11 @@ package com.sky.mapper;
 import com.sky.annotation.AutoFill;
 import com.sky.entity.User;
 import com.sky.enumeration.OperationType;
+import io.swagger.models.auth.In;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+
+import java.util.Map;
 
 /**
  * @Author: DLMU 袁佳林
@@ -20,5 +23,7 @@ public interface UserMapper {
 
     @Select("select * from user where id = #{id}")
     User getById(Long userId);
+
+    Integer countByMap(Map map);
 
 }
