@@ -68,7 +68,6 @@
         <xxl.job.version>2.2.0-SNAPSHOT</xxl.job.version>
     </properties>
     <dependencies>
-        <!--日志处理包-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-log4j2</artifactId>
@@ -82,7 +81,6 @@
         </dependency>
     </dependencies>
     <dependencyManagement>
-
         <dependencies>
             <!--内部依赖工程-->
             <dependency>

@@ -1,4 +1,4 @@
-package com.yjl.common.exception;
+package com.heima.common.exception;
 
 import com.yjl.model.common.enums.AppHttpCodeEnum;
 

@@ -7,11 +7,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="heima-leadnews-test" />
+        <module name="yjl-leadnews-user" />
         <module name="heima-leadnews-utils" />
         <module name="heima-leadnews-feign-api" />
         <module name="heima-leadnews-common" />
         <module name="heima-leadnews-model" />
-        <module name="heima-leadnews-service" />
         <module name="heima-leadnews-gateway" />
       </profile>
     </annotationProcessing>
@@ -30,6 +30,7 @@
       <module name="heima-leadnews-service" options="-parameters" />
       <module name="heima-leadnews-test" options="-parameters" />
       <module name="heima-leadnews-utils" options="-parameters" />
+      <module name="yjl-leadnews-user" options="-parameters" />
     </option>
   </component>
 </project>
